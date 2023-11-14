@@ -8,6 +8,7 @@ import useCurrentUser from "@/hooks/useCurrentUser";
 import useRegisterModel from "@/hooks/useRegisterModal";
 import { useCallback } from "react";
 import Avatar from "./ui/Avatar";
+import Link from "next/link";
 
 
 const Navbar2 = () => {
@@ -84,9 +85,9 @@ const Navbar2 = () => {
             </li>
   
             <li>
-              <a className="text-gray-500 transition hover:text-gray-500/75" href="/">
+              <Link className="text-gray-500 transition hover:text-gray-500/75" href="/blog">
                 Blog
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>

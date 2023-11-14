@@ -1,6 +1,7 @@
 import { Inter } from 'next/font/google'
 import './globals.css'
 
+
 import { authOptions } from './api/auth/[...nextauth]/options'
 
 import SideMenu from '@/components/SideMenu'
@@ -10,6 +11,7 @@ import {getServerSession} from 'next-auth/next'
 import Footer from '@/components/Footer'
 import LoginModal from '@/components/modals/LoginModal'
 import RegisterModal from '@/components/modals/RegisterModal'
+import Loading from './loading';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -30,9 +32,11 @@ export default function RootLayout({ children }) {
         <RegisterModal></RegisterModal>
       <Navbar2> </Navbar2>
     
-      <SideMenu></SideMenu>
+      <SideMenu></SideMenu> 
+
       
         {children}
+       
         <Footer></Footer>
         </Provider></body>
       

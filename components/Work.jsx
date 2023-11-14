@@ -1,5 +1,6 @@
  
  'use client'
+import Image from 'next/image'
  import  CountUp from 'react-countup'
 
 const links = [
@@ -21,7 +22,7 @@ const links = [
        
       
        <div className=" absolute   right-0  top-10 hidden lg:block">
-            <img src="https://www.kettlebellkings.com/cdn/shop/articles/Back_Muscles.png?v=1694673237" alt="body"></img>
+            <Image src="https://www.kettlebellkings.com/cdn/shop/articles/Back_Muscles.png?v=1694673237" width={100} height={100} alt="body"></Image>
           </div>
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:mx-0">

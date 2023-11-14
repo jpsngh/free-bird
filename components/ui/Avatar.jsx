@@ -23,12 +23,15 @@ return (
     rounded-full
     hover:opacity-90
     transition
+    absolute
+    right-5
     cursor-pointer
-    relative
+    mx-10
+
      
     `}>
 
-        <Image fill style={{objectFit:'cover',borderRadius:'100%'}} alt = "Avatar" onClick={onClick} src={'/images/avatar.jpeg'}></Image>
+        <Image width={100} height={100} style={{objectFit:'cover',borderRadius:'100%'}} alt = "Avatar" onClick={onClick} src={'/images/avatar.jpeg'}></Image>
  
 
     </div>

@@ -8,6 +8,14 @@ export const author = {
       title: 'Name',
       type: 'string',
     },
+   
+     {
+
+      name: 'expertise',
+      title: 'Expertise',
+      type: 'string',
+     },
+
     {
       name: 'slug',
       title: 'Slug',

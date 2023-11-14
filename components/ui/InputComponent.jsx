@@ -17,7 +17,7 @@ onChange
     type={type}
     className={`
     w-full
-    p-4
+    p-2
     text-lg
    bg-white
     border-2

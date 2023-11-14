@@ -3,7 +3,7 @@
  */
 
 import {visionTool} from '@sanity/vision'
-import StudioNavbar from './components/studio/StudioNavbar'
+import {defineConfig} from 'sanity'
 import {deskTool} from 'sanity/desk'
 
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
@@ -16,12 +16,6 @@ export default defineConfig({
   dataset,
   // Add and edit the content schema in the './sanity/schema' folder
   schema,
-  studio:{
-   components:{
-    logo:Logo,
-    navbar:StudioNavbar
-   }
-  },
   plugins: [
     deskTool(),
     // Vision is a tool that lets you query your content with GROQ in the studio

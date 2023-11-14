@@ -3,10 +3,12 @@ import Hero from "@/components/Hero"
 import Trusted from "@/components/Trusted"
 import Work from "@/components/Work"
 import Blog from "@/components/Blog"
-import Footer from "@/components/Footer"
-import Testimonials from "@/components/Testimonials"
+
 import Testament from "@/components/ui/Testament"
 import Locations from "@/components/Locations"
+import Team from "@/components/Team"
+
+
 
 export default function Home() {
   return (
@@ -37,9 +39,9 @@ export default function Home() {
 <div className="bg-white my-[250px] ">
 
 <Trusted></Trusted>
+<Team></Team>
 
 </div>
-
 
       </div>
    
