@@ -1,9 +1,7 @@
 
 import Layout from "./Layout"
+export const dynamic = 'force-dynamic'
 
-
-import { Suspense } from "react";
-import Loading from "@/app/loading";
 
 import { getPosts } from "@/sanity/lib/utils";
 
@@ -16,9 +14,9 @@ return (
  
   <div className="flex flex-col justify-center items-center"> 
           <h1 className="font-semibold text-3xl m-5 ">Welcome to Fitness Digest + </h1>
-          <Suspense fallback={<Loading/>}> 
+       
   <Layout data={data} ></Layout>
-  </Suspense>
+  
 
   </div>
  

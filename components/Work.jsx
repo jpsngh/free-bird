@@ -21,9 +21,7 @@ const links = [
       <div className="relative isolate overflow-hidden bg-white py-24 sm:py-32">
        
       
-       <div className=" absolute   right-0  top-10 hidden lg:block">
-            <Image src="https://www.kettlebellkings.com/cdn/shop/articles/Back_Muscles.png?v=1694673237" width={100} height={100} alt="body"></Image>
-          </div>
+       
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:mx-0">
             <h2 className="text-4xl font-bold tracking-tight text-orange-500 sm:text-6xl">Train with us</h2>
@@ -32,7 +30,9 @@ const links = [
               fugiat veniam occaecat fugiat aliqua.
             </p>
           </div>
-      
+          <div className=" absolute  right-2   top-10 hidden lg:block">
+            <Image src="https://www.kettlebellkings.com/cdn/shop/articles/Back_Muscles.png?v=1694673237" width={400} height={300} alt="body"></Image>
+          </div>
           <div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
             <div className="grid grid-cols-1 gap-x-8 gap-y-6 text-base font-semibold leading-7 text-blue-800 sm:grid-cols-2 md:flex lg:gap-x-10">
               {links.map((link) => (

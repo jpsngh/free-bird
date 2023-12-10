@@ -1,4 +1,76 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
+
+@layer components {
+  .all-\[unset\] {
+    all: unset;
+  }
+}
+
+:root {
+  --dark-typography-body-2-font-family: "Inter-Regular", Helvetica;
+  --dark-typography-body-2-font-size: 14px;
+  --dark-typography-body-2-font-style: normal;
+  --dark-typography-body-2-font-weight: 400;
+  --dark-typography-body-2-letter-spacing: 0.15000000596046448px;
+  --dark-typography-body-2-line-height: 142.99999475479126%;
+  --dark-typography-caption-font-family: "Roboto-Regular", Helvetica;
+  --dark-typography-caption-font-size: 12px;
+  --dark-typography-caption-font-style: normal;
+  --dark-typography-caption-font-weight: 400;
+  --dark-typography-caption-letter-spacing: 0.4000000059604645px;
+  --dark-typography-caption-line-height: 165.9999966621399%;
+  --dark-typography-subtitle-1-font-family: "Roboto-Regular", Helvetica;
+  --dark-typography-subtitle-1-font-size: 16px;
+  --dark-typography-subtitle-1-font-style: normal;
+  --dark-typography-subtitle-1-font-weight: 400;
+  --dark-typography-subtitle-1-letter-spacing: 0.15000000596046448px;
+  --dark-typography-subtitle-1-line-height: 175%;
+  --dark-typography-subtitle-2-font-family: "Roboto-Medium", Helvetica;
+  --dark-typography-subtitle-2-font-size: 14px;
+  --dark-typography-subtitle-2-font-style: normal;
+  --dark-typography-subtitle-2-font-weight: 500;
+  --dark-typography-subtitle-2-letter-spacing: 0.10000000149011612px;
+  --dark-typography-subtitle-2-line-height: 157.00000524520874%;
+  --light-components-button-medium-font-family: "Inter-Medium", Helvetica;
+  --light-components-button-medium-font-size: 14px;
+  --light-components-button-medium-font-style: normal;
+  --light-components-button-medium-font-weight: 500;
+  --light-components-button-medium-letter-spacing: 0.4000000059604645px;
+  --light-components-button-medium-line-height: 24px;
+  --light-components-input-text-font-family: "Inter-Regular", Helvetica;
+  --light-components-input-text-font-size: 16px;
+  --light-components-input-text-font-style: normal;
+  --light-components-input-text-font-weight: 400;
+  --light-components-input-text-letter-spacing: 0.15000000596046448px;
+  --light-components-input-text-line-height: 24px;
+  --light-components-table-header-font-family: "Inter-SemiBold", Helvetica;
+  --light-components-table-header-font-size: 12px;
+  --light-components-table-header-font-style: normal;
+  --light-components-table-header-font-weight: 600;
+  --light-components-table-header-letter-spacing: 0.17000000178813934px;
+  --light-components-table-header-line-height: 24px;
+  --light-elevation-3: 0px 4px 8px -4px rgba(58, 53, 65, 0.42);
+  --light-elevation-card: 0px 2px 10px 0px rgba(58, 53, 65, 0.1);
+  --light-typography-body-1-font-family: "Inter-Regular", Helvetica;
+  --light-typography-body-1-font-size: 16px;
+  --light-typography-body-1-font-style: normal;
+  --light-typography-body-1-font-weight: 400;
+  --light-typography-body-1-letter-spacing: 0.15000000596046448px;
+  --light-typography-body-1-line-height: 24px;
+  --light-typography-body-2-font-family: "Inter-Regular", Helvetica;
+  --light-typography-body-2-font-size: 14px;
+  --light-typography-body-2-font-style: normal;
+  --light-typography-body-2-font-weight: 400;
+  --light-typography-body-2-letter-spacing: 0.15000000596046448px;
+  --light-typography-body-2-line-height: 20px;
+  --light-typography-h6-font-family: "Inter-Medium", Helvetica;
+  --light-typography-h6-font-size: 20px;
+  --light-typography-h6-font-style: normal;
+  --light-typography-h6-font-weight: 500;
+  --light-typography-h6-letter-spacing: 0.15000000596046448px;
+  --light-typography-h6-line-height: 32px;
+  --lighttextprimary: rgba(58, 53, 65, 0.87);
+}

@@ -1,3 +1,4 @@
+import Image from "next/image"
 
 
 const TeamProfile = ({image,name,expertise,author_role,}) => {
@@ -10,9 +11,9 @@ const TeamProfile = ({image,name,expertise,author_role,}) => {
             <div class="col-span-4 sm:col-span-3">
                 <div class="bg-white shadow rounded-lg p-6">
                     <div class="flex flex-col items-center">
-                        <img src={image} alt="jp" class="w-32 h-32 bg-gray-300 rounded-full mb-4 shrink-0">
+                        <Image src={image} height={100} width={100} alt="jp" class="w-32 h-32 bg-gray-300 rounded-full mb-4 shrink-0">
 
-                        </img>
+                        </Image>
                         <h1 class="text-xl font-bold">{name}</h1>
                         <p class="text-gray-600">{expertise}</p>
                         <div class="mt-6 flex flex-wrap gap-4 justify-center">

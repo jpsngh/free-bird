@@ -2,7 +2,8 @@
   import { getPosts } from "@/sanity/lib/utils"
 import Image from "next/image";
 import Link from "next/link";
-    
+
+
   
   export default async function Blog() {
      const posts = await getPosts();

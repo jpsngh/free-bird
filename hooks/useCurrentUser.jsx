@@ -4,10 +4,11 @@ import fetcher from '@/lib/fetcher'
 
 
 const useCurrentUser= ()=>{
-    const {data,error,isLoading,mutate} = useSWR('/api/users/',fetcher)
+    const {data,error,caches,isLoading,mutate} = useSWR('/api/users',fetcher)
 
     return {
         data,
+        caches,
         error,
         isLoading,
         mutate

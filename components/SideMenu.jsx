@@ -1,6 +1,9 @@
 'use client'
 
-import useSideMenu from "@/hooks/useSideMenu";
+import useSideMenu from "../hooks/useSideMenu";
+import { SignedOut } from "@clerk/nextjs";
+import Image from "next/image";
+import Link from "next/link"
 
 
 const SideMenu = () => {
@@ -9,22 +12,19 @@ const SideMenu = () => {
 
     if(isOpen) {
 
-    return ( <div className=" md:hidden flex h-screen flex-col justify-between border-e bg-white">
-    <div className="px-4 py-6">
-      <span
-        className="grid h-10 w-32 place-content-center rounded-lg bg-gray-100 text-xs text-gray-600"
-      >
-        Logo
-      </span>
+    return ( <div  className=" md:hidden flex h-fit flex-col justify-between border-e bg-white">
+    <div onAuxClickCapture={()=>{onClose()}}
+     className="px-4 py-6">
+   
   
       <ul className="mt-6 space-y-1">
         <li>
-          <a
-            href=""
+          <Link
+            href="/profile"
             className="block rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700"
           >
-            General
-          </a>
+           Profile
+          </Link>
         </li>
   
         <li>
@@ -32,7 +32,7 @@ const SideMenu = () => {
             <summary
               className="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700"
             >
-              <span className="text-sm font-medium"> Teams </span>
+              <span className="text-sm font-medium"> Get your BMR </span>
   
               <span
                 className="shrink-0 transition duration-300 group-open:-rotate-180"
@@ -58,7 +58,7 @@ const SideMenu = () => {
                   href=""
                   className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
                 >
-                  Banned Users
+                  Trainers
                 </a>
               </li>
   
@@ -67,7 +67,7 @@ const SideMenu = () => {
                   href=""
                   className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
                 >
-                  Calendar
+                  Blog
                 </a>
               </li>
             </ul>
@@ -79,7 +79,8 @@ const SideMenu = () => {
             href=""
             className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
           >
-            Billing
+            About Us
+            
           </a>
         </li>
   
@@ -88,7 +89,7 @@ const SideMenu = () => {
             href=""
             className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
           >
-            Invoices
+            Services
           </a>
         </li>
   
@@ -142,7 +143,7 @@ const SideMenu = () => {
                     type="submit"
                     className="w-full rounded-lg px-4 py-2 text-sm font-medium text-gray-500 [text-align:_inherit] hover:bg-gray-100 hover:text-gray-700"
                   >
-                    Logout
+                    <SignedOut></SignedOut>
                   </button>
                 </form>
               </li>
@@ -152,23 +153,7 @@ const SideMenu = () => {
       </ul>
     </div>
   
-    <div className="sticky inset-x-0 bottom-0 border-t border-gray-100">
-      <a href="#" className="flex items-center gap-2 bg-white p-4 hover:bg-gray-50">
-        <img
-          alt="Man"
-          src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-          className="h-10 w-10 rounded-full object-cover"
-        />
-  
-        <div>
-          <p className="text-xs">
-            <strong className="block font-medium">Eric Frusciante</strong>
-  
-            <span> eric@frusciante.com </span>
-          </p>
-        </div>
-      </a>
-    </div>
+   
   </div> )}
 
   else return ""

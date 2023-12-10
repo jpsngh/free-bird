@@ -5,14 +5,15 @@ import React,{useState} from 'react'
 import BMRCalculator from '../../components/BmrCalculator'
 import ResultsContainer from '../../components/ResultsContainer'
 import Layout from '../(blog)/blog/Layout';
- 
+  import bmrServer from './bmrServer';
 
 const BmrLayout = ({trainer}) => {
   console.log(trainer)
   const [bmrData, setBMRData] = useState(null);
 
-  const handleBMRSubmit = (data) => {
+  const handleBMRSubmit =  (data) => {
     setBMRData(data);
+   
   };
 
   return (

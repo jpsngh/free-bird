@@ -1,4 +1,4 @@
- 
+export const dynamic = 'force-dynamic'
 import { getSinglePost } from '@/sanity/lib/utils';
 
 import Blog from './Blog';

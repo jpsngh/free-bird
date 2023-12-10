@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images:{
-        domains: ["cdn.sanity.io","www.freebirdhealthclub.ca","images.unsplash.com","tailwindui.com","dummyimage.com","www.kettlebellkings.com"],
+        domains: ["cdn.sanity.io","www.freebirdhealthclub.ca","images.unsplash.com","tailwindui.com","dummyimage.com","img.clerk.com","www.kettlebellkings.com"],
         remotePatterns:[{
              protocol:"https",
              hostname :"cdn.sanity.io",
@@ -26,7 +26,17 @@ const nextConfig = {
          
           ]
     },
-    
+    headers: () => [
+        {
+          source: '/:path*',
+          headers: [
+            {
+              key: 'Cache-Control',
+              value: 'no-store',
+            },
+          ],
+        },
+      ],
    
 
     

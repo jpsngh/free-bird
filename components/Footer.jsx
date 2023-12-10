@@ -4,9 +4,9 @@ import Image from "next/image";
 const Footer = () => {
     return (  
 
-      <footer className="bg-white">
+      <footer className="bg-white ">
         <div className="mx-auto max-w-screen-xl px-4 pb-6 pt-16 sm:px-6 lg:px-8 lg:pt-24">
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-3">
             <div>
               <div className="flex justify-center text-teal-600 sm:justify-start">
               <Image src="https://www.freebirdhealthclub.ca/assets/img/logo/freebirdlogo.png" className="w-[100px] h-[60px] p-2" width={100} height={60} alt="free-bird" ></Image>
@@ -139,7 +139,7 @@ const Footer = () => {
             </div>
       
             <div
-              className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4 lg:col-span-2"
+              className="md:grid p-5 hidden   right-5 grid-cols-2 gap-10 sm:grid-cols-2 md:grid-cols-4 lg:col-span-2"
             >
               <div className="text-center sm:text-left">
                 <p className="text-lg font-medium text-gray-900">About Us</p>
@@ -225,53 +225,7 @@ const Footer = () => {
                 </ul>
               </div>
       
-              <div className="text-center sm:text-left">
-                <p className="text-lg font-medium text-gray-900">Helpful Links</p>
-      
-                <ul className="mt-8 space-y-4 text-sm">
-                  <li>
-                    <a
-                      className="text-gray-700 transition hover:text-gray-700/75"
-                      href="/"
-                    >
-                      FAQs
-                    </a>
-                  </li>
-      
-                  <li>
-                    <a
-                      className="text-gray-700 transition hover:text-gray-700/75"
-                      href="/"
-                    >
-                      Support
-                    </a>
-                  </li>
-      
-                  <li>
-                    <a
-                      className="group flex justify-center gap-1.5 ltr:sm:justify-start rtl:sm:justify-end"
-                      href="/"
-                    >
-                      <span
-                        className="text-gray-700 transition group-hover:text-gray-700/75"
-                      >
-                        Live Chat
-                      </span>
-      
-                      <span className="relative flex h-2 w-2">
-                        <span
-                          className="absolute inline-flex h-full w-full animate-ping rounded-full bg-teal-400 opacity-75"
-                        ></span>
-                        <span
-                          className="relative inline-flex h-2 w-2 rounded-full bg-teal-500"
-                        ></span>
-                      </span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-
-
+              
 
   
               <div className="text-center sm:text-left">

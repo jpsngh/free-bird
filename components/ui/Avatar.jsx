@@ -12,10 +12,10 @@ const Avatar =({
     //const {data : fetchedUser} =  useUser(userId);
     const onClick = useCallback((event)=>{
         event.stopPropagation();
-        const url = `/users/${userId}`
+        const url = `/profile`
         router.push(url)
         
-    },[router,userId])
+    },[router])
 return (
     <div className={`${hasBorder?'border-4 bor0der-black':"" }
     ${isLarge ? 'h-32' : 'h-12 '}

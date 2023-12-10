@@ -27,9 +27,9 @@ const handle = useCallback(()=>{
  return  (
               <>
                 <div
-                  className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none shadow-xl focus:outline-none"
+                  className="justify-center w-full md:w-full   top-10 items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none shadow-xl focus:outline-none"
                 >
-                  <div className="p-2 relative min-w-[50%] my-6 mx-auto max-w-3xl">
+                  <div className="p-2 relative min-w-[50%]   mx-auto md:max-w-3xl">
                     {/*content*/}
                     <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                       {/*header*/}

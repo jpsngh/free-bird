@@ -24,7 +24,7 @@ const Layout = ({data}) => {
     }
 
   },[limit,lLimit])
-  let arr = [1,2,3,4,5,6,7,8,9,10,12,13,14,15,16,17]
+
 
   return (
     <div className="flex  flex-col justify-center gap-5 items-center">
@@ -48,7 +48,7 @@ const Layout = ({data}) => {
 
      </div>
 
-     <button onClick={handle}> Load More... </button>
+     <button className="border p-5 bg-orange-500 text-white" onClick={handle}> Load More... </button>
     </div>
   )
 }

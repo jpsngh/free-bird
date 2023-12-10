@@ -1,0 +1,99 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+    previewFeatures = ["fullTextSearch", "fullTextIndex"]
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+
+
+
+model User {
+  id  String @id @default(auto()) @map("_id") @db.ObjectId
+  clerkId  String @unique
+  firstName  String
+  lastName String?
+  email String? 
+  imageUrl String?
+  joinedAt Int?
+  gender String?
+  birthDay String?
+  paid  Boolean?
+  phone Int?
+  weight Int?
+  height Int?
+  goal  String?
+  bmr   Int?
+  isAdmin Boolean?
+  isTrainer Boolean?
+  name String?
+  createdAt String?
+  assignedTrainer Trainer? @relation(fields: [trainerId],references: [id])
+  trainerSlug String? @default("")
+  trainerId   String? @unique @db.ObjectId
+  diet Diet? @relation(fields: [dietId],references: [id])
+  dietId String? @unique @db.ObjectId
+  schedule Schedule? @relation(fields: [scheduleId],references: [id])
+  scheduleId String ? @unique @db.ObjectId
+ trainerNote String ?
+
+ 
+
+
+ 
+  
+  
+
+   @@map("user")
+}
+
+
+ 
+
+model Trainer {
+    id  String @id @default(auto()) @map("_id") @db.ObjectId
+
+
+    trainerName String?
+    trainerSlug String? @unique
+    trainerImageUrl String?
+    trainerProfileUrl String?
+    assignedClient User[] 
+    diet Diet[] 
+    schedule Schedule[]
+    
+
+     @@map("trainer")
+
+}
+
+model Diet {
+
+    id  String @id @default(auto()) @map("_id") @db.ObjectId
+   author   Trainer  @relation(fields: [trainerId], references: [id])
+    trainerId String  @db.ObjectId
+     dietUrl String
+     dietTitle String?
+     user User[] 
+   
+
+        @@map("diet")
+}
+
+model Schedule {
+    id  String @id @default(auto()) @map("_id") @db.ObjectId
+    author   Trainer   @relation(fields: [trainerId], references: [id])
+    trainerId String  @db.ObjectId 
+    scheduleStart String 
+    scheduleDate String 
+    scheduleEnd String
+    user User ?
+    @@map("schedule")
+}
+

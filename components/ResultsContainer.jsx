@@ -2,9 +2,10 @@
 "use client"
 
 
+import Image from 'next/image';
 import Link from 'next/link';
 import React,{useState} from 'react';
-
+import bmrServer from '@/app/bmr/bmrServer';
 
 const ResultsContainer = ({ data,trainer }) => {
   const [bmr,setBmr] = useState();
@@ -62,7 +63,7 @@ const ResultsContainer = ({ data,trainer }) => {
           <div className='flex flex-col gap-2 border shadow-md rounded p-2'>
           <div> 
 
-          <img src={trainer.image} alt="img" className='w-5 h-5'></img>
+          <Image src={trainer.image} height={100} width={100} alt="img" className='w-5 h-5'></Image>
          <h2>{trainer.name}</h2>
           </div>
                    
@@ -75,7 +76,7 @@ const ResultsContainer = ({ data,trainer }) => {
 
          return   <div key={trainer.name}>
          <h2>{trainer.name}</h2>
-         <img src={trainer.image} alt="img"></img>
+         <Image src={trainer.image} alt="img"></Image>
          <p> {trainer.expertise}</p>
          </div>
          })}
@@ -90,7 +91,7 @@ const ResultsContainer = ({ data,trainer }) => {
 };
 
 // Function to determine body type based on BMR data
-const determineBodyType = (data) => {
+const determineBodyType =  (data) => {
   // Perform logic to determine body type based on BMR data
   // For simplicity, I'll use a placeholder logic. You may replace it with your actual logic.
 

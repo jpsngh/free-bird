@@ -9,10 +9,10 @@ import Locations from "@/components/Locations"
 import Team from "@/components/Team"
 
 
-
 export default function Home() {
+
   return (
-    <main className="flex min-w-7xl flex-col items-center justify-between p-24">
+    <main className="flex min-w-7xl flex-col items-center justify-between p-5">
      <Hero>
      </Hero>    
      <div className="bg-mobile h-full w-screen bg-fixed " >

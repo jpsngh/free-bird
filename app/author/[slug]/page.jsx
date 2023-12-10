@@ -1,6 +1,7 @@
 import React from 'react'
 import TeamProfile from '@/components/TeamProfile'
 import { getAuthor } from '@/sanity/lib/utils'
+export const dynamic = 'force-dynamic'
 const page = async({params}) => {
     const slug = params.slug
   

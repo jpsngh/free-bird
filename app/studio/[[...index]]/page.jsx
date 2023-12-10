@@ -13,5 +13,7 @@ import { NextStudio } from 'next-sanity/studio'
 import config from '../../../sanity.config'
 
 export default function StudioPage() {
-  return <NextStudio config={config} />
+
+
+  return <div className=' flex justify-center items-center p-5 m-2'>  <NextStudio config={config} /> </div>
 }

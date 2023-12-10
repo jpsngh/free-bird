@@ -3,6 +3,7 @@ import InputComponent from '../ui/InputComponent'
 import React, { useCallback,useState } from 'react'
 import useLoginModel from '@/hooks/useLoginModal'
 import Modal from './Modal'
+ import { SignInButton } from "@clerk/nextjs";
 import { signIn } from "next-auth/react";
 import useRegisterModel from '@/hooks/useRegisterModal'
 
@@ -46,12 +47,7 @@ const LoginModal = ({}) => {
         return loginModal.onClose();
     },[loginModal])
 
-    const body = (<div className="flex flex-col gap-4">
-
-    <InputComponent placeholder="Email" onChange={(e) => setEmail(e.target.value)} value={email} disabled={isLoading} type={"email"}></InputComponent>
-    <InputComponent placeholder="Password" onChange={(e) => setPassword(e.target.value)} value={password} disabled={isLoading} type={"password"}></InputComponent>
-   
- </div>)
+    const body = (<SignInButton mode="modal"></SignInButton>)
    
 
   return (<Modal isOpen={loginModal.isOpen} body={body} action="Submit" title="Login" onClose={onClosed} onSubmit={onSubmit} onToggle={onToggle}></Modal>
