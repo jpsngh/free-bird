@@ -1,5 +1,5 @@
 
-import serverAuth from "@/lib/serverAuth";
+
 import { NextResponse } from "next/server";
 import { auth,currentUser } from "@clerk/nextjs";
 import prisma from '../../../server';

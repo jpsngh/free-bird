@@ -2,8 +2,8 @@
 
 import React,{useState} from 'react'
 
-import BMRCalculator from '../../components/BmrCalculator'
-import ResultsContainer from '../../components/ResultsContainer'
+import BMRCalculator from "@/components/BMRCalculator"
+import ResultsContainer from '@/components/ResultsContainer'
 import Layout from '../(blog)/blog/Layout';
   import bmrServer from './bmrServer';
 
