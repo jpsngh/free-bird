@@ -29,6 +29,7 @@ const {userId} =  auth();
             trainerId,
             dietTitle,
             dietUrl,
+            user : {}
             
          
             

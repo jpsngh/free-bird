@@ -2,13 +2,15 @@
 
 import React,{useCallback, useState,useEffect} from 'react';
 import axios from "axios"
-import { DatePicker,TimePicker, Space, Button ,Card,message,Collapse} from 'antd';
+import {Avatar, DatePicker,TimePicker, Space, Button ,Card,message,Collapse} from 'antd';
  import useAllSchedule from '@/hooks/useAllSchedule';
 
 
 const Scheduler = ({clients,trainer}) => {
 
     const [messageApi, contextHolder] = message.useMessage();
+
+    console.log(trainer)
   
 
     const [scheduleId,setScheduleId] = useState()
@@ -175,7 +177,9 @@ const Scheduler = ({clients,trainer}) => {
 >
   <p> Starting at : {scheduler.scheduleStart}</p>
   <p> Ending at :{scheduler.scheduleEnd}</p>
-  <p> Assigned Client: {scheduler?.user?.firstName}</p>
+  <p> Assigned Client: {scheduler?.user?.map((item)=>{
+    return <p  key={item.id}> <Avatar src={item.imageUrl} width={3} height={3}  /> {item.firstName}, </p>
+  })}</p>
   <Button onClick={(e)=>  handleChange(e)
 } value={scheduler.id} className="mt-2" danger> Delete </Button>
 </Card> </div>)

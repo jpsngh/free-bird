@@ -16,6 +16,7 @@ import AntModal from '@/components/modals/AntModal'
 import EditModal from '@/components/modals/EditModal'
 
 
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -42,6 +43,7 @@ export default function RootLayout({ children }) {
 
       
         {children}
+      
        
         <Footer></Footer>
         </EdgeStoreProvider>

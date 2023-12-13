@@ -29,6 +29,7 @@ const {userId} =  auth();
                 weight,
                 height,
                 goal,
+                imageUrl
             } =  res
    const user = await prisma.user.update({
     where:{

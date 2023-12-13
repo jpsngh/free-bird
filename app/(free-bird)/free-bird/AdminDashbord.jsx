@@ -1,6 +1,8 @@
 "use client"
 import React, { useState } from 'react';
-import ClientList from './ClientList';
+import useCurrentUser from '@/hooks/useCurrentUser'
+import useAllUser from "@/hooks/useAllUsers"
+
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
@@ -10,20 +12,60 @@ import {
   FileAddOutlined
 } from '@ant-design/icons';
 import { Avatar, Layout, Menu, Button, theme } from 'antd';
-import TrainerProfile from './TrainerProfile';
-import Scheduler from './Scheduler'
-import Workouts from './Workouts';
+import UserDetails from './UserDetails';
+import Loading from '@/app/loading';
 
 
 const { Header, Sider, Content } = Layout;
-const Dashboard = ({trainer,author}) => {
+const AdminDashboard = ({}) => {
+
+    const {data:current,isLoading} =  useCurrentUser()
+    const {data:users} = useAllUser("/api/allUsers")
 
   const [collapsed, setCollapsed] = useState(false);
   const [content, setContent] = useState("1")
 
+  console.log("users",users);
   const {
     token: { colorBgContainer },
   } = theme.useToken();
+
+   
+   if(isLoading){
+    return <Loading></Loading>
+   }
+
+  if(!current?.isAdmin){
+    return <div className='flex text-center m-5 p-5 text-blue-800 text-xl'> Not Authorized</div>
+  }
+
+  const DateMonth = users?.filter((data)=>{
+
+
+    if(data?.joinedAt >  Date.now() - (7 * 24 * 60 * 60 * 1000))
+    {
+   
+      return true
+    }
+   
+
+  })
+
+
+
+
+  const trainerData = users?.filter((data)=>{
+    if(data?.isTrainer){
+      return true
+    }
+      
+  })
+  var resultProductData = users?.filter( (user)=> {
+    var date = new Date(user.joinedAt)
+    return (date >= ( Date.now() - 10 * 24 * 60 * 60 * 1000) && date <= Date.now());
+  });
+
+  console.log("r",resultProductData)
   return (
     <Layout>
       <Sider 
@@ -48,7 +90,7 @@ const Dashboard = ({trainer,author}) => {
             {
               key: '1',
               icon: <UserOutlined />,
-              label: 'Profile',
+              label: 'Infographics',
             },
             {
               key: '2',
@@ -58,12 +100,12 @@ const Dashboard = ({trainer,author}) => {
             {
               key: '3',
               icon: <UploadOutlined />,
-              label: 'Schedule',
+              label: 'Trainers',
             },
             {
               key : '4',
               icon: <FileAddOutlined />,
-              label: 'Workouts',
+              label: 'Other',
             }
           ]}
         />
@@ -93,10 +135,7 @@ const Dashboard = ({trainer,author}) => {
 
             }}
           />
-          <div className="flex flex-row gap-2 m-2 justify-center items-center mr-3">
-             <Avatar src={author?.image} width={10} height={10} > </Avatar>
-           <h2> {trainer.trainerName}</h2>
-            </div>
+         
            
         </Header>
         <Content
@@ -108,13 +147,13 @@ const Dashboard = ({trainer,author}) => {
             background:"white",
           }}
         >
-          {content==="1"&&<TrainerProfile author={author} ></TrainerProfile>}
-         {content==="2"&&<ClientList clients={trainer.assignedClient} trainer={trainer} ></ClientList>}
-         {content==="3"&&<Scheduler clients={trainer.assignedClient} trainer={trainer} ></Scheduler>}
-         {content==="4"&&<Workouts  trainer={trainer} ></Workouts>}
+
+         {content==="2"&&<UserDetails user={users} ></UserDetails>}
+         {content==="3"&&<UserDetails user={trainerData} ></UserDetails>}
+
         </Content>
       </Layout>
     </Layout>
   );
 };
-export default Dashboard;
+export default AdminDashboard;

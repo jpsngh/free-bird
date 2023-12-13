@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { Avatar, List, Space,Tag } from 'antd';
 import SideDrawer from "./Drawer"
 
@@ -10,7 +10,7 @@ import SideDrawer from "./Drawer"
 const ClientList = ({clients,trainer}) => {
   const [open, setOpen] = useState(false);
   const [data,setData] = useState()
-  const [position, setPosition] = useState('bottom');
+  const [refresh, setRefresh] = useState(false);
   const [align, setAlign] = useState('center');
 
   const showDrawer = (item) => {
@@ -19,11 +19,24 @@ const ClientList = ({clients,trainer}) => {
     console.log(data)
     setOpen(true);
   };
+
+
+  useEffect(()=>{
+    if(refresh){
+        setTimeout(()=>{
+            window.location.reload();
+            setRefresh(false)
+       
+        },2000)
+    }
+  
+  },[refresh])
+
    
 
   return (
     <>
-    {open &&  <SideDrawer trainer={trainer}  open={open} setOpen={setOpen}  data={data} /> }
+    {open &&  <SideDrawer trainer={trainer} setRefresh={setRefresh}  open={open} setOpen={setOpen}  data={data} /> }
    
       <Space
         direction="vertical"

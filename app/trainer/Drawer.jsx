@@ -9,13 +9,14 @@ const DescriptionItem = ({ title, content }) => (
 );
 const { Option } = Select;
 const { TextArea} = Input;
-const SideDrawer = ({open,setOpen,data,trainer}) => {
+const SideDrawer = ({open,setOpen,data,trainer,setRefresh}) => {
   const [messageApi, contextHolder] = message.useMessage();
 
   const [trainerNotes,setMessage] = useState(data?.trainerNote)
   const [scheduling,setScheduling] = useState(data?.schedule?.id)
   const [diet,setDiet] = useState(data?.diet?.id)
 
+  console.log("d",data)
 
   const handleSubmit=useCallback(async()=>{
     try
@@ -43,6 +44,13 @@ const SideDrawer = ({open,setOpen,data,trainer}) => {
        
  
       console.log("success")
+
+      setRefresh(true);
+
+      setTimeout(()=>{
+        setOpen(false);
+      },1000)
+     
     
        };
    
@@ -151,8 +159,9 @@ console.log(trainer.schedule)
               title="Assign Session"
    
             />
-             <select className="m-1 p-2" value={scheduling} onChange={(e)=>setScheduling((e.target).value)}   placeholder="Please select an Schedule">
+             <select className="m-1 p-2" defaultValue={scheduling} onChange={(e)=>setScheduling((e.target).value)}   placeholder="Please select an Schedule">
               {trainer.schedule.map((scheduler)=>{
+                <option key={scheduler.id} value={scheduler.id}> <div>  {scheduler.scheduleDate} : {scheduler.scheduleStart} to {scheduler.scheduleEnd}  </div> </option>
 
          return  <option key={scheduler.id} value={scheduler.id}> <div>  {scheduler.scheduleDate} : {scheduler.scheduleStart} to {scheduler.scheduleEnd}  </div> </option>
 
@@ -169,7 +178,7 @@ console.log(trainer.schedule)
               title="Assign Diet"
    
             />
-             <select  className="m-1 p-2" value={diet} onChange={(e)=>setDiet((e.target).value)} placeholder="Please select an Schedule">
+             <select  className="m-1 p-2" defaultValue={diet} onChange={(e)=>setDiet((e.target).value)} placeholder="Please select an Schedule">
               {trainer.diet.map((workout)=>{
 
          return  <option key={workout.id} value={workout.id}> <div>  {workout.dietTitle}   </div> </option>

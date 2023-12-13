@@ -8,9 +8,14 @@ import AntModal from "./AntModal"
 import useSuccess from '@/hooks/useSuccess'
 import axios from 'axios'
 import Loading from '@/app/loading'
+import { useEdgeStore } from '@/lib/edgestore';
+import {Avatar,Button} from "antd"
 
 const RegisterModal = () => {
+
+
     const successModal = useSuccess()
+    const { edgestore } = useEdgeStore()
     const router = useRouter();
     const {data,isLoading} = useCurrentUser();
 
@@ -24,6 +29,8 @@ const RegisterModal = () => {
     const [weight,setWeight] = useState(data?.weight);
     const [goal,setGoal] = useState(data?.goal);
     const [loading,setLoading] = useState(false)
+    const [ profileImage,setProfileImage] = useState(data?.imageUrl)
+    const [ file,setFile] = useState()
 
     
     const registerModal = useRegisterModel()
@@ -31,8 +38,11 @@ const RegisterModal = () => {
 
    
  useEffect(()=>{
-
- })
+    if(profileImage){
+        console.log(profileImage)
+    }
+  
+ },[profileImage])
 
 
     const onSubmit = useCallback(async()=>{
@@ -48,7 +58,8 @@ const RegisterModal = () => {
                 height,
                 weight,
                 goal,
-                gender
+                gender,
+                imageUrl : profileImage
 
                 
             })
@@ -72,7 +83,7 @@ const RegisterModal = () => {
            
          
         }
-    },[email,phone,weight,height, firstName,lastName,gender,goal ,registerModal])
+    },[email,phone,weight,height, firstName,lastName,gender,goal ,registerModal,successModal])
     const onClosed = useCallback(()=>{
         if(!registerModal.isOpen){
             return
@@ -82,11 +93,46 @@ const RegisterModal = () => {
 
     const body = (
 <div>
-      {isLoading?<Loading></Loading> : 
+    
 
         <section className="bg-white relative  dark:bg-gray-900">
         <div className="max-w-2xl px-4  mx-auto ">
             <h2 className="mb-4 text-xl font-bold text-gray-900 dark:text-white">Update Information</h2>
+            <div className=" flex flex-row gap-3 ">
+                <div className="w-xl">
+            <Avatar src={profileImage} width={10} height={10}> </Avatar>
+            </div>
+            <input
+        type="file"
+
+        
+        accept="image/*" 
+        onChange={(e) => {
+          setFile(e.target.files?.[0]);
+        }}
+      />
+     {file && <Button
+       onClick={async () => {
+          if (file) {
+            const res = await edgestore.publicFiles.upload({
+              file,
+             
+            });
+            // you can run some server action or api here
+            // to add the necessary data to your database
+            console.log(res.url);
+            if(res){
+            setProfileImage(res.url)
+            }
+                        
+
+          }
+        }}
+      >
+        Upload
+      </Button>}
+
+            </div>
             <form action="submit">
                 <div className="grid gap-4 mb-4 sm:grid-cols-2 sm:gap-6 sm:mb-5">
                     <div className="sm:col-span-1">
@@ -139,7 +185,8 @@ const RegisterModal = () => {
               
             </form>
         </div>
-      </section> } </div>
+      </section>
+      </div>
    
 )
 

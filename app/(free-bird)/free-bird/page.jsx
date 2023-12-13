@@ -1,15 +1,25 @@
 
-import React from 'react'
- import Dashboard from '../../../components/Dashboard'
+
+
+
+import AdminDashboard from './AdminDashbord'
+
+
+const  page = async() => {
  
-const page = async() => {
 
+return (
+ 
+  <div > 
 
-  return (
-    <div className=" w-full">
-      <Dashboard></Dashboard>
-    </div>
+       
+  <AdminDashboard  ></AdminDashboard>
+  
+
+  </div>
+ 
   )
+  
 }
 
 export default page

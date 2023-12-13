@@ -33,7 +33,15 @@ const Navbar2 = () => {
         }
        return onClose();
     }
-    return ( <div className="bg-white shadow-sm shadow-orange-500 p-2">
+    return ( <div
+    
+      style=
+        {{
+          "--angle": "0deg",
+          "--border-color": "linear-gradient(var(--angle), #070707, #687aff)",
+          "--bg-color": "linear-gradient(#131219, #131219)",
+        }}
+    className="navbar bg-white   shadow-sm shadow-orange-500 p-2">
       
     <div
       className=" flex h-16 max-w-screen-xl items-center gap-8 px-2 sm:px-6 lg:px-8"

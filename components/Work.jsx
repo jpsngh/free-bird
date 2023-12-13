@@ -2,6 +2,7 @@
  'use client'
 import Image from 'next/image'
  import  CountUp from 'react-countup'
+ import Framer from "@/lib/framer"
 
 const links = [
     { name: 'One on One Training', href: '#' },
@@ -23,13 +24,17 @@ const links = [
       
        
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        
           <div className="mx-auto max-w-2xl lg:mx-0">
+          <Framer x={2} color={"orange"}>
             <h2 className="text-4xl font-bold tracking-tight text-orange-500 sm:text-6xl">Train with us</h2>
+            </Framer>
             <p className="mt-6 text-lg leading-8 text-gray-500">
               Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet
               fugiat veniam occaecat fugiat aliqua.
             </p>
           </div>
+          
           <div className=" absolute  right-2   top-10 hidden lg:block">
             <Image src="https://www.kettlebellkings.com/cdn/shop/articles/Back_Muscles.png?v=1694673237" width={400} height={300} alt="body"></Image>
           </div>

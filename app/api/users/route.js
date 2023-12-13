@@ -37,18 +37,18 @@ const {userId} =  auth();
 
     const  newUser = await currentUser();
    
-
+ console.log(newUser);
     const data = await prisma.user.create({ data: {
        clerkId:userId,
-       name :  newUser.fullName,
-       firstName: newUser.firstName,
-       lastName: newUser.lastName,
-       imageUrl: newUser.imageUrl,
-       gender:newUser.birthday,
-       email : newUser.emailAddresses[0].emailAddress,
+    
+       firstName: newUser?.firstName,
+       lastName: newUser?.lastName,
+       imageUrl: newUser?.imageUrl,
+       gender:newUser?.birthday,
+       email : newUser?.emailAddresses[0]?.emailAddress,
        joinedAt : Date.now(),
-       phone : newUser.phoneNumbers[0].phoneNumber,
-       createdAt : newUser.createdAt
+       phone : newUser?.phoneNumbers[0]?.phoneNumber,
+       createdAt : newUser?.createdAt
       
 
 

@@ -18,9 +18,26 @@ import { getAuthor } from '@/sanity/lib/utils'
             trainerSlug
         },
         include : {
-          assignedClient : true,
-          schedule : true,
-          diet : true
+          assignedClient : {
+            include: {
+              schedule:true,
+              diet:true
+            }
+           
+
+          },
+          schedule : {
+            include :{
+              user : true
+            }
+            
+          },
+          diet : {
+            include :{
+              user : true
+            }
+         
+          }
         }
        
     })

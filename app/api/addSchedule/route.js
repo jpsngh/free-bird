@@ -30,6 +30,7 @@ const {userId} =  auth();
             scheduleDate,
             scheduleEnd,
             scheduleStart,
+            user:{}
          
             
 

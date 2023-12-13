@@ -31,6 +31,7 @@ const EditModal = ({open,data,setOpen,api}) => {
     const [isTrainer,setIsTrainer] = useState(data?.isTrainer)
     const [trainerSlug,setTrainerSlug] = useState(data?.trainerSlug)
     const [assignedTrainer,setAssignTrainer] = useState(data?.assignedTrainer)
+
    
   
    

@@ -3,11 +3,11 @@
 import React,{useState,useEffect, useCallback} from 'react'
 import useAllUser from '@/hooks/useAllUsers'
 import Loading from '@/app/loading'
-import TableData from '../Tablee'
+import TableData from './Table'
 import axios from "axios"
 
 
-const Page = ({user:data}) => {
+const UserDetails = ({user:data}) => {
  
  
   console.log("client",data)
@@ -95,4 +95,4 @@ const Page = ({user:data}) => {
   )
 }
 
-export default Page
+export default UserDetails
