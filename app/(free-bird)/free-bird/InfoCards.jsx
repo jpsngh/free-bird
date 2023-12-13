@@ -1,86 +1,199 @@
-import React from 'react'
+import React,{useState} from 'react'
  import Link from "next/link"
+ import { Radio,Button,Card, Statistic,List,Avatar,Collapse } from 'antd'; 
+ import { ArrowDownOutlined, ArrowUpOutlined } from '@ant-design/icons';
+
+const InfoCards = ({user,trainerData}) => {
+   
+  const [radio,setRadio] = useState(7)
+
+
+
+
+  const onRadioChange = ({ target: { value } }) => {
+    console.log('radio1 checked', value);
+    setRadio(value);
+  };
+  
+
+  const adminUsers = user?.filter((use)=>{
+
+    if(use.isAdmin){
+      return true
+    }
+
+  })
+
+
+
+  const resultProductData = user?.filter( (use)=> {
+    var date = new Date(use.joinedAt)
+    return (date >= ( Date.now() - radio * 24 * 60 * 60 * 1000) && date <= Date.now());
+  });
+
+
+
+ const items=[
+    {
+      key: '1',
+      label: 'New Users',
+      children: <List
+      itemLayout="horizontal"
+      dataSource={resultProductData}
+      renderItem={(item, index) => (
+        <List.Item
+     
+        >
+          <List.Item.Meta
+            avatar={<Avatar src={item.imageUrl} />}
+            title={<Link href={{
+              pathname:`/qrchecker/${item.id}`,
+              query :{
+                userId : item.id
+              }
+            }}
+         
+  
+            >
+              {item.firstName}
+            </Link>}
+            description={item.email}
+          
+          />
+               { }
+        </List.Item>
+      )}
+    
+    />,
+    },
+    
+    {
+      key: '2',
+      label: 'Administrators',
+      children: <List
+      itemLayout="horizontal"
+      dataSource={adminUsers}
+      renderItem={(item, index) => (
+        <List.Item
+     
+        >
+          <List.Item.Meta
+            avatar={<Avatar src={item.imageUrl} />}
+            title={<Link href={{
+              pathname:`/qrchecker/${item.id}`,
+              query :{
+                userId : item.id
+              }
+            }}
+         
+  
+            >
+              {item.firstName}
+            </Link>}
+            description={item.email}
+          
+          />
+               { }
+        </List.Item>
+      )}
+    
+    />,
+    }
+  ]
  
 
-const InfoCards = ({data,url,svg}) => {
+  console.log("r",resultProductData)
+  const data = user?.map((dat)=>{
+    return {
+
+      title: `${dat?.firstName} ${dat?.lastName}`,
+      image : dat?.imageUrl,
+      email : dat?.email,
+      action : dat?.id
+
+    }
+  }) 
 
   
-  
+
+  const paidUsers = user?.filter((client)=>{
+
+    if(client.paid===true){
+      return true
+    }
+
+  })
+
+  const newPaidUsers = resultProductData?.filter((data)=>{
+    if(data.paid){
+      return true
+    }
+  })
+
+  const options = [{
+
+    label:"Week",
+    value:7
+
+  },{
+    label : "Month",
+    value:30
+  }]
 
   
   return (
-    <div  >
-      <Link href={{
-        pathname:"/free-bird/clients",
-      }
+   <div  className=" w-full flex flex-col gap-3 justify-center p-3 m-2 items-center"> 
 
-      }> 
-        <article className="rounded-lg border border-gray-100 bg-white p-6">
-  <div className="flex items-center justify-between">
-    <div>
-      <p className="text-sm text-gray-500">Trainers</p>
+   <div className="flex flex-row gap-5 justify-between p-2  items-center" >
+   <Statistic title="Total Users" value={user?.length}  />
+   <Statistic title="Total Trainers" value={trainerData?.length}  />
+   <Statistic title="Paid Users" value={paidUsers?.length}  />
+   </ div>
 
-      <p className="text-2xl font-medium text-gray-900">{data?.length}</p>
-    </div>
-
-    <span className="rounded-full bg-blue-100 p-3 text-blue-600">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-8 w-8"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        strokeWidth="2"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"
+   <div className="flex flex-row gap-5 justify-center p-2  items-center">
+    <div> 
+   <Radio.Group options={options} onChange={onRadioChange} value={radio} optionType="button" />
+      <br />
+   <Card bordered={false}>
+        <Statistic
+          title={`${resultProductData?.length} New Users since last ${radio===7?"Week":"Month"} `}
+          value={(resultProductData?.length / user?.length) * 100 }
+          precision={2}
+          valueStyle={{ color: '#3f8600' }}
+          prefix={<ArrowUpOutlined />}
+          suffix="%"
         />
-      </svg>
-    </span>
-  </div>
-
-  <div className="mt-1 flex gap-1 text-green-600">
-  <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className="h-4 w-4"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="2"
-        d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"
-      />
-    </svg>
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className="h-4 w-4"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="2"
-        d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-      />
-    </svg>
-
-    <p className="flex gap-2 text-xs">
-      <span className="font-medium"> 67.81% </span>
-
-      <span className="text-gray-500"> Since last week </span>
-    </p>
-  </div>
-</article>
-</Link>
-     
+      </Card>
     </div>
+
+   
+    
+      <Card bordered={false}>
+        <Statistic
+          title= { ` ${newPaidUsers?.length} paid users since last ${radio===7?"Week":"Month"}  `}
+          value={ (newPaidUsers?.length / user?.length) * 100 }
+          precision={2}
+          valueStyle={(newPaidUsers?.length / user?.length) * 100 < 50 ?{ color: '#cf1322' }:{ color: '#3f8600' }}
+ 
+          suffix="%"
+        />
+      </Card>
+
+     
+
+   </div>
+
+
+   <div className=" w-full flex flex-row justify-center gap-2 "> 
+ <Collapse ghost
+ className="w-full"
+      items={items}
+    />
+   
+  </div>
+
+
+   </div>
   )
 }
 

@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import useCurrentUser from '@/hooks/useCurrentUser'
 import useAllUser from "@/hooks/useAllUsers"
+import InfoCards from './InfoCards';
 
 import {
   MenuFoldOutlined,
@@ -148,6 +149,7 @@ const AdminDashboard = ({}) => {
           }}
         >
 
+         {content==="1"&&<InfoCards user={users} trainerData={trainerData}  ></InfoCards>}
          {content==="2"&&<UserDetails user={users} ></UserDetails>}
          {content==="3"&&<UserDetails user={trainerData} ></UserDetails>}
 
