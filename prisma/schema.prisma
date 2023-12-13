@@ -33,7 +33,7 @@ model User {
   isAdmin Boolean?
   isTrainer Boolean?
   name String?
-  createdAt String?
+  createdAt Int?
   assignedTrainer Trainer? @relation(fields: [trainerId],references: [id])
   trainerSlug String? @default("")
   trainerId   String? @unique @db.ObjectId

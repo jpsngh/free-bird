@@ -3,7 +3,7 @@
 import React,{useState,useEffect, useCallback} from 'react'
 import useAllUser from '@/hooks/useAllUsers'
 import Loading from '@/app/loading'
-import TableData from '../Tablee'
+import TableData from '../Table'
 import axios from "axios"
 
 
