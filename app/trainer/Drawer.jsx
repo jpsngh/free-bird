@@ -13,8 +13,8 @@ const SideDrawer = ({open,setOpen,data,trainer,setRefresh}) => {
   const [messageApi, contextHolder] = message.useMessage();
 
   const [trainerNotes,setMessage] = useState(data?.trainerNote)
-  const [scheduling,setScheduling] = useState(data?.schedule?.id)
-  const [diet,setDiet] = useState(data?.diet?.id)
+  const [scheduling,setScheduling] = useState(data?.schedule?.id || null)
+  const [diet,setDiet] = useState(data?.diet?.id || null)
 
   console.log("d",data)
 
@@ -159,7 +159,8 @@ console.log(trainer.schedule)
               title="Assign Session"
    
             />
-             <select className="m-1 p-2" defaultValue={scheduling} onChange={(e)=>setScheduling((e.target).value)}   placeholder="Please select an Schedule">
+             <select className="m-1 p-2" defaultValue={scheduling} onChange={(e)=>setScheduling((e.target).value || null)}   placeholder="Please select an Schedule">
+              <option value={null}>  </option>
               {trainer.schedule.map((scheduler)=>{
                 <option key={scheduler.id} value={scheduler.id}> <div>  {scheduler.scheduleDate} : {scheduler.scheduleStart} to {scheduler.scheduleEnd}  </div> </option>
 
@@ -178,7 +179,8 @@ console.log(trainer.schedule)
               title="Assign Diet"
    
             />
-             <select  className="m-1 p-2" defaultValue={diet} onChange={(e)=>setDiet((e.target).value)} placeholder="Please select an Schedule">
+             <select  className="m-1 p-2" defaultValue={diet} onChange={(e)=>setDiet( (e.target).value || null)  } placeholder="Please select a Diet plan">
+             <option  value={null} placeholder='Select a diet'></option>
               {trainer.diet.map((workout)=>{
 
          return  <option key={workout.id} value={workout.id}> <div>  {workout.dietTitle}   </div> </option>

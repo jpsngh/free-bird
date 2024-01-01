@@ -94,22 +94,30 @@ const columns = [
 ];
 
   return (
-    <div className="flex flex-col flex-wrap justify-center items-center overflow-x-auto gap-3 ">
+    <div className="flex relative flex-col flex-wrap justify-center items-center overflow-x-auto gap-3 ">
 
          <h2 className=" text-blue-800"> {data?.length} Users found </h2>
       
-      <Table className=' text-sm text-blue-800 '   dataSource={list} >
+      <Table 
+       pagination={{
+        position:"bottom",
+        align:"center",
+        pageSize:5
+      }}
+      
+      className=' text-sm text-blue-800 '   dataSource={list} >
         
         
       <Column title="Image" dataIndex="image" key="image"   render={(text) => <Avatar src={text}></Avatar>} />
       <Column title=" Name" dataIndex="name" key="name" />
 
 
-    <Column className=" hidden md:block " title="Gender" dataIndex="gender" key="gender" />
-   <span> </span>
+    <Column className=" hidden md: " title="Gender" dataIndex="gender" key="gender" />
+  
 
    <Column className=" hidden md:block" title="Email" dataIndex="email" key="email" />
- <span> </span>
+
+ 
     <Column className=" hidden md:flex"
       title="Tags"
       dataIndex="tags"

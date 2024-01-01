@@ -3,62 +3,86 @@ import Hero from "@/components/Hero"
 import Trusted from "@/components/Trusted"
 import Work from "@/components/Work"
 import Blog from "@/components/Blog"
-
+import Reviews from "@/components/Reviews"
 import Testament from "@/components/ui/Testament"
-import Locations from "@/components/Locations"
+import Locations from "@/components/ui/Locations"
 import Team from "@/components/Team"
+import Cta from "@/components/ui/Cta"
 import Framer from '@/lib/framer';
+import Transformations from "@/components/Transformations"
+import Banner from "@/components/Banner"
 
-export default function Home() {
+export default async function  Home() {
 
   return (
   
     <main className="flex min-w-7xl flex-col items-center justify-between p-5">
-     
+     <div className="w-full">
+<Banner> </Banner>
+</div>
+
      <Hero>
      </Hero>  
-     
+  
      <div className="bg-mobile h-full w-screen bg-fixed " >
-       <h2> Hi </h2>
+
      <div className="bg-white my-[250px]"> 
      <Framer direction={"x"}>
 <Work> </Work>
 </Framer>
 
 </div>
-<div> 
-<Framer direction={"y"}>
-  
-<Blog></Blog>
-</Framer>
-</div>
 
 
      </div>
 
+
+     <Framer direction={"x"}>
+     <Blog> </Blog>
+    
+</Framer>
    
 
-     <div className="bg-mobilejp md:h-full md:w-screen bg-fixed bg-canvas" >
 
+   
+     <div className="bg-mobilejp md:h-full md:w-screen bg-fixed bg-canvas" >
+      <div className=" md:hidden   "> 
+     <Cta className=" md:hidden   "> </Cta>
+     </div>
 <div className="bg-white my-[250px] ">
-<Framer direction={"z"}>
-<Testament></Testament>
-</Framer>
+<Framer direction={"x"}>
+
+<div className=" "> 
 <Locations></Locations>
+</div>
+
+
+</Framer>
+
+
+
 
 
 </div>
+<div className="bg-white p-5"> 
+<Reviews/>
+</div>
+
+
+
 <div className="bg-white my-[250px] ">
 <Framer direction={"x"}>
 <Trusted>
 </Trusted>
 </Framer>
-<Framer direction={"y"}>
+<Framer direction={"x"}>
 <Team></Team>
 </Framer>
 
 </div>
-
+<div className="bg-white" >
+<Transformations> </Transformations>
+</div>
       </div>
    
  

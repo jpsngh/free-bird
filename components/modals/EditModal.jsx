@@ -40,7 +40,7 @@ const EditModal = ({open,data,setOpen,api}) => {
     const handleChange = useCallback((e)=>
     {
 
-      setAssignTrainer(e.target.value)
+      setAssignTrainer(e.target.value || null)
       console.log("value",e.target.value)
  
     },[setAssignTrainer] )
@@ -163,7 +163,7 @@ const EditModal = ({open,data,setOpen,api}) => {
               >
 
                 {trainer.map((train)=>{
-
+                    <option value={null}> "Select a trainer" </option>
                  return    <option value={train} key={train.id} > {`${train.trainerName}  & ${train.trainerSlug}`}   </option>
                 })} 
                 

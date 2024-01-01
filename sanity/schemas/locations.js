@@ -1,7 +1,7 @@
-const work = {
+const location = {
  
-    name :"work",
-    title:"Work",
+    name :"location",
+    title:"Location",
     type : "document",
     fields:[
     
@@ -38,48 +38,42 @@ const work = {
             }
         ],
     },{
+        name : "image2",
+        title : "image2",
+        type:"image",
+        fields:[
+            {
+                name:"alt",
+                title:"alt",
+                type:"string",
+            }
+        ],
+    },
+    {
         name:"url",
         title:"url",
         type:"url"
     },{
-        name:"url2",
-        title:"url2",
-        type:"url"
-    },{
-        name:"url3",
-        title:"url3",
-        type:"url"
-    },{
-        name:"url4",
-        title:"url4",
-        type:"url"
-    }
-    
-    ,{
-        name :"btn1",
-        title:"btn1",
+        name :"btn",
+        title:"btn",
         type:"string"
 
     },
-        {
-            name :"btn2",
-            title:"btn2",
-            type:"string"
-    
-        },{
-            name :"btn3",
-            title:"btn3",
-            type:"string"
-    
-        },{
-            name :"btn4",
-            title:"btn4",
-            type:"string"
-    
-        },
+    {
+        name :"address1",
+        title:"address1",
+        type:"string"
+
+    }, {
+        name :"address2",
+        title:"address2",
+        type:"string"
+
+    },
+       
     ]
 
 
 }
 
-export default work
+export default location

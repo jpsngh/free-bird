@@ -59,7 +59,7 @@ const ProfileLayout = () => {
   return (
   
     <div className=" m-5 flex items-center justify-center">
-      <div className="w-full md:max-w-full p-8 m-5 border-4 border-blue-800 rounded-lg shadow-md bg-white">
+      <div className="w-full md:max-w-full p-8 m-5 rounded-lg shadow-md bg-white">
         {/* User Info Section */}
         {  console.log("success", successModal.isSuccess)}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 items-center mb-6">
@@ -130,6 +130,16 @@ const ProfileLayout = () => {
         {/* Assigned Trainer Section */}
         <div className="mb-6">
           <h2 className="text-xl font-bold mb-2">Assigned Trainer</h2>
+        
+           {data?.assignedTrainer === null ? 
+          
+          <div> 
+            
+            <h2>  You have not assigned the trainer,Please contact us to get a trainer working on your goals </h2>
+            
+             </div> :
+         
+             
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 items-center">
             <div className="col-span-1 md:col-span-1">
               <div className="w-12 h-12 rounded-full overflow-hidden">
@@ -145,16 +155,36 @@ const ProfileLayout = () => {
             <div className="col-span-2 md:col-span-2">
               <h3 className="text-lg font-semibold">{data?.assignedTrainer?.trainerName}</h3>
               <Link href={`/author/${data?.assignedTrainer?.trainerSlug}`} className="text-gray-600">Trainer Profile</Link>
+
+      
             
             </div>
+            <div>
+            <h2 className="text-lg font-bold mb-2">Session</h2>
+             <p> Date : {data?.schedule?.scheduleDate}</p>
+             <p> Start Time : {data?.schedule?.scheduleStart} </p>
+             <p>End Time : {data?.schedule?.scheduleEnd} </p>
+
+            </div>
           </div>
+}
         </div>
 
         <hr className="w-full h-1 m-2 "></hr>  
         {/* Workouts and Diet Section */}
-        <div>
+        <div className="flex flex-col  ">
           <h2 className="text-xl font-bold mb-2">Workouts and Diet</h2>
-          <Image src={data?.diet?.dietUrl} alt="workout" width={200} height={200} className="text-gray-600"></Image>
+          {
+            data?.diet === null ? 
+            <div>
+               You have not assigned a Workout plan yet,please contact your trainer.
+               </div> :
+               <div className="flex flex-col justify-center gap-2 items-center"> 
+                <h2 className="text-lg font-bold" > Workout Name : {data?.diet?.dietTitle } </h2>
+                <h2>Assigned by : {data?.diet?.author?.trainerName} </h2>
+          <Image src={data?.diet?.dietUrl} alt="workout" width={500} height={500} className="text-gray-600"></Image>
+          </div>
+}
         </div>
       </div>
       </div>

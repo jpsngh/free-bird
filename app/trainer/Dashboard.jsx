@@ -18,7 +18,7 @@ import Workouts from './Workouts';
 const { Header, Sider, Content } = Layout;
 const Dashboard = ({trainer,author}) => {
 
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(true);
   const [content, setContent] = useState("1")
 
   const {

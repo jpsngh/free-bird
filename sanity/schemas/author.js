@@ -8,7 +8,18 @@ export const author = {
       title: 'Name',
       type: 'string',
     },
-   
+    {
+      name: 'transformation',
+      title: 'transformation',
+      type: 'reference',
+      to: {type: 'transformation'},
+    },
+    {
+      name: 'transformation2',
+      title: 'transformation2',
+      type: 'reference',
+      to: {type: 'transformation'},
+    },
      {
 
       name: 'expertise',

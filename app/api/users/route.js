@@ -23,7 +23,12 @@ const {userId} =  auth();
     },
     include:{
         assignedTrainer:true,
-        diet : true,
+        diet : {
+            include : {
+                author : true
+            }
+        
+        },
         schedule:true,
         
     }

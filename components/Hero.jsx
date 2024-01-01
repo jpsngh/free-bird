@@ -7,14 +7,14 @@ const  Hero = async() => {
     const  data =  await getHero();
     console.log(data)
     return ( 
-        <div className="p-5 py-24">
+        <div className="p-5 py-20 md:py-0">
         
         <section className="bg-parallax text-left dark:bg-gray-900">
         
-    <div className="grid max-w-screen-xl  py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
+    <div className="grid max-w-screen-xl   py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
    
         <div className=" text-left  lg:col-span-7">
-        <Framer x={2} color={"blue"} >
+        <Framer x={2} color={"white"} >
             <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight text-blue-800 leading-none md:text-5xl xl:text-6xl dark:text-white"> {data[0].headline}</h1>
             </Framer> 
             <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">{data[0].content}</p>
@@ -26,9 +26,9 @@ const  Hero = async() => {
                Explore 
             </a> 
         </div>
-        <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
+        <div className="hidden lg:mt-0 lg:col-span-5  lg:flex">
 
-            <Image src={data[0].image} height={550} width={550} alt="image" ></Image>
+            <Image src={data[0].image} height={300} width={400} layout={"responsive"} alt="image" ></Image>
         </div>        
             
     </div>

@@ -4,23 +4,14 @@ export const reviews = {
     type: 'document',
     fields: [
       {
-        name: 'title',
-        title: 'Title',
+        name: 'name',
+        title: 'Name',
         type: 'string',
-      },
-      {
-        name: 'slug',
-        title: 'Slug',
-        type: 'slug',
-        options: {
-          source: 'title',
-          maxLength: 10,
-        },
       },
     
       {
-        name: 'mainImage',
-        title: 'Main image',
+        name: 'authorImage',
+        title: 'Author Image ',
         type: 'image',
         options: {
           hotspot: true,
@@ -34,45 +25,16 @@ export const reviews = {
         ]
       },
       {
-        name: 'categories',
-        title: 'Categories',
-        type: 'array',
-        of: [{type: 'reference', to: {type: 'category'}}],
-      },
-      {
-        name: 'publishedAt',
-        title: 'Published at',
-        type: 'datetime',
-      },{
-        name:"month",
-        title:"Month",
-        type:"string"
-      },
-      {
-        name: 'body',
-        title: 'Body',
+        name: 'review',
+        title: 'Review',
         type: 'blockContent',
       },
       {
-        name:"author",
-        title:"Author",
-        type:"string"
-      },
-      {
-        name: 'authorImage',
-        title: 'Author Image',
-        type: 'image',
-        options: {
-          hotspot: true,
-        },
-        fields: [
-          {
-            name: 'alt',
-            type: 'string',
-            title: 'Alternative Text',
-          }
-        ]
+        name: 'authorWork',
+        title: 'Author Work',
+        type: 'string',
       }
+     
     ],
   
    

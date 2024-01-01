@@ -7,10 +7,11 @@ import { SignInButton } from "@clerk/nextjs";
 import { SignUpButton } from "@clerk/nextjs";
 import { useAuth } from "@clerk/nextjs";
 import { UserButton } from "@clerk/nextjs";
+import { usePathname } from 'next/navigation'
 
 import useCurrentUser from "@/hooks/useCurrentUser";
 import useRegisterModel from "@/hooks/useRegisterModal";
-import { useCallback } from "react";
+import { useCallback,useState,useRef } from "react";
 import Avatar from "./ui/Avatar";
 import Link from "next/link";
 
@@ -22,10 +23,10 @@ const Navbar2 = () => {
   const loginModal = useLoginModel()
   const registerModal = useRegisterModel()
   const {data:currentUser} = useCurrentUser();
-
-    const {isOpen,onOpen,onClose} = useSideMenu();
+  const ref = usePathname();
  
-    
+    const {isOpen,onOpen,onClose} = useSideMenu();
+
 
     const handle = ()=>{
         if(!isOpen){
@@ -33,47 +34,41 @@ const Navbar2 = () => {
         }
        return onClose();
     }
-    return ( <div
-    
-      style=
-        {{
-          "--angle": "0deg",
-          "--border-color": "linear-gradient(var(--angle), #070707, #687aff)",
-          "--bg-color": "linear-gradient(#131219, #131219)",
-        }}
+    return ( <div    
     className="navbar bg-white   shadow-sm shadow-orange-500 p-2">
       
     <div
       className=" flex h-16 max-w-screen-xl items-center gap-8 px-2 sm:px-6 lg:px-8"
     >
-      <a className="block text-teal-600" href="/">
+      <Link className="block text-teal-600 " href="/">
         <span className="sr-only">Home</span>
         <img src="https://www.freebirdhealthclub.ca/assets/img/logo/freebirdlogo.png" className="w-[100px] h-[60px] p-2" ></img>
-      </a>
+      </Link>
   
       <div className="flex flex-1 items-center justify-end md:justify-between">
         <nav aria-label="Global" className="hidden md:block">
-          <ul className="flex items-center gap-6 text-sm">
+          <ul className="flex items-center gap-6 text-md">
+            {console.log(ref)}
             <li>
-              <a className="text-gray-500 transition hover:text-gray-500/75" href="/">
+              <Link  className={` ${ref==="/about"?"text-blue-800":"text-gray-500"} relative after:bg-gray-500 after:top-5 after:absolute after:h-[1px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer   transition hover:text-blue-800`} href="/about">
                 About
-              </a>
+              </Link>
             </li>
   
             <li>
-              <a className="text-gray-500 transition hover:text-gray-500/75" href="/">
+              <Link className={` ${ref==="/carrers"?"text-blue-800":"text-gray-500"} relative after:bg-blue-800 after:top-5 after:absolute after:h-[1px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer transition hover:text-blue-800`} href="/">
                 Careers
-              </a>
+              </Link>
             </li>
   
             <li>
-              <a className="text-gray-500 transition hover:text-gray-500/75" href="/">
+              <Link className={` ${ref==="/history"?"text-blue-800":"text-gray-500 "}  transition hover:text-blue-800`} href="/">
                 History
-              </a>
+              </Link>
             </li>
   
             <li>
-              <Link className="text-gray-500 transition hover:text-gray-500/75" href={currentUser?.isTrainer ? {
+              <Link className={` ${ref==="/trainer"?"text-blue-800":" text-gray-500"}  transition hover:text-blue-800`} href={currentUser?.isTrainer ? {
                 pathname:"/trainer",
                 query:{
                   trainerSlug: currentUser.trainerSlug,
@@ -85,20 +80,28 @@ const Navbar2 = () => {
             </li>
   
             <li>
-              <a className="text-gray-500 transition hover:text-gray-500/75" href={currentUser?.isAdmin ? `/free-bird`:`/services` }>
+              <Link className={` ${ref==="/admin"?"text-blue-800":"text-gray-500"} relative after:bg-blue-800 after:top-5 after:absolute after:h-[1px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer transition hover:text-blue-800`} href={currentUser?.isAdmin ? `/free-bird`:`/services` }>
               {currentUser?.isAdmin? "Admin ":"Services"}  
-              </a>
+              </Link>
             </li>
   
             <li>
-              <Link className="text-gray-500 transition hover:text-gray-500/75" href="/blog">
+              <Link className={` ${ref==="/blog"?"text-blue-800":"text-gray-500"} relative after:bg-blue-800 after:top-5 after:absolute after:h-[1px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer transition hover:text-blue-800`} href="/blog">
                 Blog
               </Link>
             </li>
+
+              <li>
+              <Link  className={`hidden ${ref==="/blog"?"text-blue-800":"text-gray-500"} md:block text-gray-500 transition hover:text-blue-800 text-md `} href={"/profile"} >
+          Profile
+          </Link>
+                </li>
+
+
           </ul>
         </nav>
   
-        <div className="flex items-center gap-4 " >
+        <div className="flex items-center gap-4 right-3 absolute " >
          {!isSignedIn  ? <div   className="sm:flex sm:gap-4">
           <SignInButton mode="modal"> 
             <button 
@@ -120,14 +123,12 @@ const Navbar2 = () => {
           </div> : 
           <div className="flex flex-row gap-2 items-center justify-center"> 
           <UserButton></UserButton> 
-          <Link  className="hidden md:block text-gray-500 transition hover:text-gray-500/75 text-sm" href={"/profile"}>
-          Profile
-          </Link>
+         
           
            </div>}
   
           <button
-           onClick={handle}  className="block rounded bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden"
+           onClick={handle}  className="block rounded bg-gray-100 p-2.5 text-gray-500 transition hover:text-blue-800 md:hidden"
           >
             <span className="sr-only">Toggle menu</span>
             <svg

@@ -2,6 +2,7 @@
  import { headers } from "next/headers"
 import axios  from "axios"
 
+import Loading from '@/app/loading'
 import prisma from '@/server'
 import ClientPage from "./ClientPage"
 
@@ -37,11 +38,15 @@ const data = await getData(userId)
 
 
 
+
+
    
     
   return (
 
+
     <ClientPage data={data}></ClientPage>
+
    
   )
 }

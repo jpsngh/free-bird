@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
 const BlogCard = ( {title,author,text,image,slag} ) => {
-  console.log("Slag",slag)
+
  const router = useRouter();
   const href=`/blog/${slag}`;
   console.log(title)

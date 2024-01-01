@@ -18,7 +18,7 @@ const page = async({params}) => {
     
 
 
-      <Blog   title={title} author_name={author_name} publishedAt={publishedAt}  author_image={data.author_image} body={body} author_role={author_role} _id={_id}  image={data.image}    ></Blog>
+      <Blog   title={title} author_name={author_name} publishedAt={publishedAt}  author_image={data.author_image} body={body} author_role={author_role} _id={_id}  image={data.image} rich_body={data.rich_body}    ></Blog>
     </div>
   )
 }

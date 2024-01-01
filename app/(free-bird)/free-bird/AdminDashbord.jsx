@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import useCurrentUser from '@/hooks/useCurrentUser'
 import useAllUser from "@/hooks/useAllUsers"
 import InfoCards from './InfoCards';
+import OtherDetails from './OtherDetails'
 
 import {
   MenuFoldOutlined,
@@ -23,7 +24,7 @@ const AdminDashboard = ({}) => {
     const {data:current,isLoading} =  useCurrentUser()
     const {data:users} = useAllUser("/api/allUsers")
 
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(true);
   const [content, setContent] = useState("1")
 
   console.log("users",users);
@@ -68,6 +69,10 @@ const AdminDashboard = ({}) => {
 
   console.log("r",resultProductData)
   return (
+    <div className='m-2 p-2 border border-box rounded shadow-xl' > 
+         
+        <h2> Welcome To Admin Dashboard </h2>
+       
     <Layout>
       <Sider 
       
@@ -85,6 +90,7 @@ const AdminDashboard = ({}) => {
         <Menu
           theme="dark"
           mode="inline"
+          
           onClick={(selectedKeys)=>setContent(selectedKeys.key)  }
           defaultSelectedKeys={["1"]}
           items={[
@@ -152,10 +158,12 @@ const AdminDashboard = ({}) => {
          {content==="1"&&<InfoCards user={users} trainerData={trainerData}  ></InfoCards>}
          {content==="2"&&<UserDetails user={users} ></UserDetails>}
          {content==="3"&&<UserDetails user={trainerData} ></UserDetails>}
+         {content==="4"&&<OtherDetails user={trainerData} ></OtherDetails>}
 
         </Content>
       </Layout>
     </Layout>
+    </div>
   );
 };
 export default AdminDashboard;

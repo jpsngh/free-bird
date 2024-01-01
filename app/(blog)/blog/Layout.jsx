@@ -1,7 +1,7 @@
 'use client'
 import BlogCard from "./BlogCard"
 
-import { useCallback, useState } from "react"
+import { useCallback, useState,useRef,useEffect } from "react"
 
 
 
@@ -12,6 +12,9 @@ const Layout = ({data}) => {
 
   const [limit,setLimit] = useState(5);
   const [lLimit,setLLimit] = useState(0)
+
+  
+
   console.log(data)
   const handle =  useCallback(()=>{
     if(limit <= 15) {
@@ -48,7 +51,7 @@ const Layout = ({data}) => {
 
      </div>
 
-     <button className="border p-5 bg-orange-500 text-white" onClick={handle}> Load More... </button>
+     <button   className={`"border p-2 bg-orange-500 shadow rounded text-white disabled:opacity-0.5" ${data.length<6?"cursor-not-allowed opacity-50":""} `}> Load More...</button>
     </div>
   )
 }
