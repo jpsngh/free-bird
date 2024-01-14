@@ -16,7 +16,10 @@ module.exports = {
     extend: {
       backgroundImage : {
         mobile : `url(https://www.freebirdhealthclub.ca/admin/sliders/2.jpeg)`,
-        mobilejp : `url(https://www.freebirdhealthclub.ca/assets/img/bg/hero-1.jpg)`
+        mobilejp : `url(https://www.freebirdhealthclub.ca/assets/img/bg/hero-1.jpg)`,
+        landscapeBg : `url(https://www.freebirdhealthclub.ca/admin/gallery/3.jpeg)`,
+        landscapeBg2 : `url(https://www.freebirdhealthclub.ca/admin/gallery/2.jpeg)`
+
 
       },
       colors: {

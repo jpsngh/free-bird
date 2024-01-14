@@ -24,7 +24,7 @@ export default async function  Home() {
      <Hero>
      </Hero>  
   
-     <div className="bg-mobile md:object-scale-down h-full w-screen bg-fixed " >
+     <div className=" bg-landscapeBg  md:bg-mobile md:object-scale-down h-full w-screen bg-fixed " >
 
      <div className="bg-white my-[250px] "> 
      <Framer direction={"x"}>
@@ -45,7 +45,7 @@ export default async function  Home() {
 
 
    
-     <div className="bg-mobilejp object-contain md:h-full md:w-screen bg-fixed bg-canvas" >
+     <div className=" bg-landscapeBg2  md:bg-mobilejp object-contain md:h-full md:w-screen bg-fixed bg-canvas" >
       <div className=" md:hidden   "> 
      <Cta className=" md:hidden   " slug="home" > </Cta>
      </div>
