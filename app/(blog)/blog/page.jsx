@@ -15,7 +15,7 @@ return (
   <div className="flex flex-col justify-center items-center gap-5"> 
 
           <div className="w-full"> 
-          <Cta></Cta>
+          <Cta slug="blog"></Cta>
 
           </div>
           <h1 className="font-semibold text-3xl m-5 ">Welcome to Fitness Digest + </h1>

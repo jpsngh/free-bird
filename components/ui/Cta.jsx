@@ -1,20 +1,23 @@
 import React from 'react'
+import {getCta} from "@/sanity/lib/utils"
 
-function Cta({image,title,description,buttonText}) {
+async function Cta({slug}) {
+
+ const data = await getCta(slug) 
+
   return (
     <div>
 
 <section
-  className="overflow-hidden  bg-[url(https://f45training.com/wp-content/uploads/2023/12/hero-blog.jpg)] bg-cover  bg-top bg-no-repeat"
+  className={`overflow-hidden  bg-[url("${data?.image || `https://f45training.com/wp-content/uploads/2023/12/hero-blog.jpg`}")] bg-cover  bg-top bg-no-repeat`}
 >
   <div className="bg-black/25 p-8 md:p-12 lg:px-16 lg:py-24">
     <div className=" flex flex-col justify-center items-center text-center ">
-      <h2 className="text-2xl font-bold text-white sm:text-3xl md:text-5xl">Free Bird Fitness</h2>
+      <h2 className="text-2xl font-bold text-white sm:text-3xl md:text-5xl"> {data?.title || "Free Bird Fitness"}</h2>
     
     <div className="text-center">
       <p className="hidden max-w-lg text-center text-white/90 md:mt-6 md:block md:text-lg md:leading-relaxed">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore officia corporis quasi
-        doloribus iure architecto quae voluptatum beatae excepturi dolores.
+       { data?.paragraph || "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore officia corporis quasi doloribus iure architecto quae voluptatum beatae excepturi dolores"}
       </p>
 </div>
       <div className="mt-4 sm:mt-8">
@@ -22,7 +25,7 @@ function Cta({image,title,description,buttonText}) {
           href="#"
           className="inline-block rounded-full bg-indigo-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring focus:ring-yellow-400"
         >
-          Keep Feeding your Fitness Knowledge
+          {data?.buttonText || "Keep Feeding your Fitness Knowledge"}
         </a>
       </div>
     </div>

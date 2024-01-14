@@ -1,28 +1,44 @@
 import Image from "next/image"
+import Framer from '@/lib/framer'
+import {getLeaderShip} from "@/sanity/lib/utils"
 
-const people = [
-    {
-      name: 'Leslie Alexander',
-      role: 'Co-Founder / CEO',
-      imageUrl:
-        'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    },
-    {
-      name: 'Sodhi Singh',
-      role: 'Co-Founder / Trainer',
-      imageUrl:
-        'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    },
-    {
-      name: 'Ravneet Singh',
-      role: 'Trainer / CTO',
-      imageUrl:
-        'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    },
-    // More people...
-  ]
+
   
-  export default function Team() {
+  export default async function Team() {
+    const data = await getLeaderShip()
+
+
+      
+
+
+    const people = [
+      {
+        name: data[0]?.leaderName1 || 'Les Alexander' ,
+        role: data[0]?.leaderRole1 || 'Co-Founder / CEO',
+        imageUrl:
+           data[0]?.leaderImage1 ||  'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+      },
+      {
+        name: data[0]?.leaderName2 || 'Sodhi Singh',
+        role: data[0]?.leaderRole2 || 'Co-Founder / Trainer',
+        imageUrl:
+        data[0]?.leaderImage2 ||  'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+    
+      },
+      {
+        name: data[0]?.leaderName3 || 'Ravneet Singh',
+        role: data[0]?.leaderRole3 ||  'Trainer / CTO',
+        imageUrl:
+        data[0]?.leaderImage3 || 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+      },{
+        name: data[0]?.leaderName4 || 'Ravneet Singh',
+        role: data[0]?.leaderRole4 ||  'Trainer / CTO',
+        imageUrl:
+        data[0]?.leaderImage4 ||  'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+      }
+      // More people...
+    ]
+
     return (
       <div className="bg-white py-24 sm:py-32">
         <div className="mx-auto grid max-w-7xl gap-x-8 gap-y-20 px-6 lg:px-6 xl:grid-cols-3">
@@ -34,10 +50,12 @@ const people = [
             </p>
           </div>
           <ul role="list" className="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2">
-            {people.map((person) => (
+            {people?.map((person) => (
               <li key={person.name}>
                 <div className="flex border-2 rounded-full border-orange-500 p-2 items-center gap-x-6">
+                  <Framer> 
                   <Image className="h-16 w-16 rounded-full" height={100} width={100} src={person.imageUrl} alt="" />
+                  </Framer>
                   <div>
                     <h3 className="text-base font-semibold leading-7 tracking-tight text-gray-900">{person.name}</h3>
                     <p className="text-sm font-semibold leading-6 text-blue-800">{person.role}</p>

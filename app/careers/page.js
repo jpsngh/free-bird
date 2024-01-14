@@ -11,7 +11,7 @@ const page = async () => {
 return (
     <div className="m-5 p-1 text-3xl ">
 
-        <Cta> </Cta>
+        <Cta slug="careers"> </Cta>
 
         <div className=" w-full flex flex-col justify-center items-center gap-5 my-5 p-5"
         > 

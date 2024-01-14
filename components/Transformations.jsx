@@ -28,23 +28,23 @@ const Transformations = async() => {
       <a href={`/transformations/${data[0]?.slug}`} className="group relative block">
   <div className="relative  h-[350px] sm:h-[450px]">
     <img
-      src={data[1]?.beforeImage || "https://images.unsplash.com/photo-1577221084712-45b0445d2b00?q=80&w=2798&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"}
+      src={data[0]?.beforeImage || "https://images.unsplash.com/photo-1577221084712-45b0445d2b00?q=80&w=2798&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"}
       alt="image"
       className="absolute inset-0 h-full w-full object-cover opacity-100 group-hover:opacity-0"
     />
 
     <img
-      src={data[1]?.afterImage ||"https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"}
+      src={data[0]?.afterImage ||"https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"}
       alt="image"
       className="absolute inset-0 h-full w-full object-cover opacity-0 group-hover:opacity-100"
     />
   </div>
 
   <div className="absolute inset-0 flex flex-col items-start justify-end p-6">
-    <h3 className="text-xl font-medium text-white bg-blue-800 p-1"> {data[0]?.name || "Singh Transformation"}</h3>
+    <h3 className="text-xl font-medium text-white bg-blue-800 p-1"> {data[0]?.title || "Singh Transformation"}</h3>
 
     <p className="mt-1.5 max-w-[40ch] text-xs text-white">
-     {data[0]?.body || "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos sequi dicta impedit  aperiam ipsum"}
+     {data[0]?.body.slice(0,50).concat(".....") || "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos sequi dicta impedit  aperiam ipsum"}
     </p>
 
     <span
@@ -73,10 +73,10 @@ const Transformations = async() => {
   </div>
 
   <div className="absolute inset-0 flex flex-col items-start justify-end p-6">
-    <h3 className="text-xl font-medium bg-blue-800 text-white"> {data[1]?.name || "King Transformation"}</h3>
+    <h3 className="text-xl font-medium bg-blue-800 text-white"> {data[1]?.title || "King Transformation"}</h3>
 
     <p className="mt-1.5 max-w-[40ch] text-xs text-white">
-    {data[1]?.body || "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos sequi dicta impedit  aperiam ipsum"}
+    {data[1]?.body.slice(0,50).concat(".....") || "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos sequi dicta impedit  aperiam ipsum"}
     </p>
 
     <span

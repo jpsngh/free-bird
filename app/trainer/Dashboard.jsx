@@ -95,7 +95,7 @@ const Dashboard = ({trainer,author}) => {
           />
           <div className="flex flex-row gap-2 m-2 justify-center items-center mr-3">
              <Avatar src={author?.image} width={10} height={10} > </Avatar>
-           <h2> {trainer.trainerName}</h2>
+           <h2> {trainer?.trainerName}</h2>
             </div>
            
         </Header>
@@ -108,9 +108,9 @@ const Dashboard = ({trainer,author}) => {
             background:"white",
           }}
         >
-          {content==="1"&&<TrainerProfile author={author} ></TrainerProfile>}
-         {content==="2"&&<ClientList clients={trainer.assignedClient} trainer={trainer} ></ClientList>}
-         {content==="3"&&<Scheduler clients={trainer.assignedClient} trainer={trainer} ></Scheduler>}
+          {content==="1"&&<TrainerProfile author={author} trainer={trainer} ></TrainerProfile>}
+         {content==="2"&&<ClientList clients={trainer?.assignedClient} trainer={trainer} ></ClientList>}
+         {content==="3"&&<Scheduler clients={trainer?.assignedClient} trainer={trainer} ></Scheduler>}
          {content==="4"&&<Workouts  trainer={trainer} ></Workouts>}
         </Content>
       </Layout>

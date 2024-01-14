@@ -21,7 +21,7 @@ const page = async() => {
 
   return (
     <div>
-        <Cta></Cta>
+        <Cta slug="transformations"></Cta>
 
      <hr className='w-full h-1 ' />
      <div className='flex justify-center gap-2 m-2 p-2 flex-col items-center'> 

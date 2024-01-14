@@ -41,15 +41,16 @@ import { getAuthor } from '@/sanity/lib/utils'
         }
        
     })
+    
+
    if(!trainer) {
-      try{
+   
         const newTrainer = await prisma.trainer.create({
 
             data :{
                 trainerName : userData,
                 trainerSlug : trainerSlug,
                 assignedClient : {},
-                trainerProfileUrl:author.image,
                 diet :{}
             }
     
@@ -59,24 +60,20 @@ import { getAuthor } from '@/sanity/lib/utils'
          })
 
     
-
+         console.log("new tam",newTrainer)
          return newTrainer
       }
-      catch(err){
+      
+      if (trainer) {
 
-        console.log(err)
-
-      }
+        console.log("tam",trainer)
+  
+        return trainer
+       }
     
 
-
-
-   }
-
-   if(trainer) {
-
-    return trainer
-   }
+ 
+   
 
 }
 catch(err) {
@@ -92,13 +89,14 @@ const page = async ({searchParams}) => {
 
     const author = await getAuthor(trainerSlug);
 
-    const trainer = await getTrainer(userData,trainerSlug,author )
+
+
+    const trainer = await getTrainer(userData,trainerSlug )
 
     console.log("trainer",trainer)
   
 
-
- console.log(trainer.assignedClient)
+ console.log(trainer?.assignedClient)
   return (
     <div className=" m-[10px] border rounded-sm shadow-md ">
 

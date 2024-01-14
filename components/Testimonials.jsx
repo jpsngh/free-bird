@@ -52,13 +52,13 @@ const Testimonials = ({testData}) => {
       {[descData[testament]].map((data)=>{
     return    <div key={data.key} > 
     <Framer >
- <div className="mt-10 md:w-[40%]"> 
-<p className=" w-fit  text-lg/2  md:text-lg  text-gray-500" >
+ <div className="mt-10 md:w-[80%]"> 
+<p className=" w-fit font-serif text-xl  md:text-3xl  text-black" >
       {data.description}
       </p>  
       </div>
 <div >
-    <div className="mt-10 shadow-lg"> <p className="text-bold  text-black text-lg" > {data.name}</p> <span> </span> <p className="text-lg text-gray-500" >{data.role}</p> </div>
+    <div className="mt-10 shadow-lg"> <p className="font-bold  text-orange-500 text-lg" > {data.name}</p> <span> </span> <p className="text-lg text-blue-800" >{data.role}</p> </div>
   </div>
   </Framer>
   </div>

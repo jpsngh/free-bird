@@ -5,7 +5,7 @@ import { Timeline } from 'antd';
 const page = () => (
     <div className="m-5 p-1 text-3xl ">
 
-        <Cta> </Cta>
+        <Cta slug="history" > </Cta>
   <Timeline
     mode="alternate"
     items={[

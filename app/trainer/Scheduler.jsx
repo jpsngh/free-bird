@@ -165,7 +165,7 @@ const Scheduler = ({clients,trainer}) => {
    
  
 
-     {trainer.schedule.map((scheduler)=>{
+     {trainer?.schedule.map((scheduler)=>{
   return (
     
    <div key={scheduler.id} className='  md:hover:shadow-xl hover:z-index-2 '>  <Card 

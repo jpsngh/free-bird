@@ -6,7 +6,7 @@ import { Image,Descriptions } from 'antd';
 
 
 
-const TrainerProfile = ({author}) => {
+const TrainerProfile = ({author,trainer}) => {
 
    
 
@@ -45,7 +45,7 @@ const TrainerProfile = ({author}) => {
     alt='data'
     src={author?.image}
   />
-<Descriptions title={author?.name} items={items} />
+<Descriptions title={trainer?.name} items={items} />
 
    </div>
 ) };

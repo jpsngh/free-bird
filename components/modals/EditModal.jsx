@@ -13,8 +13,8 @@ import axios from 'axios'
 
 const EditModal = ({open,data,setOpen,api}) => {
     const successModal = useSuccess()
-    const {data:trainer} = useAllTrainers()
-    console.log(trainer)
+    const {data:trainer,isLoading:trainerLoading} = useAllTrainers()
+
 
     const [firstName,setFirstName] = useState(data?.firstName)
     const [lastName,setLastName] = useState(data?.lastName)
@@ -162,9 +162,9 @@ const EditModal = ({open,data,setOpen,api}) => {
                onChange={handleChange}  id="category" className="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg  block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white "
               >
 
-                {trainer.map((train)=>{
+                {trainer?.map((train)=>{
                     <option value={null}> "Select a trainer" </option>
-                 return    <option value={train} key={train.id} > {`${train.trainerName}  & ${train.trainerSlug}`}   </option>
+                 return    <option value={train} key={train.id} > {`${train?.trainerName}  & ${train.trainerSlug}`}   </option>
                 })} 
                 
                  </select>
@@ -265,7 +265,7 @@ const EditModal = ({open,data,setOpen,api}) => {
 )
 
 
-   
+
 
   return (<AntModal isOpen={open} body={body} okText="Submit"  title="Edit" handleCancel={onClose} handleSubmit={onSubmit} confirmLoading={loading} ></AntModal>
   )

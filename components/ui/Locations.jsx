@@ -30,7 +30,7 @@ const Locations = async () => {
 
           <div className="mt-4 md:mt-8">
             <a
-              href={data?.url || "#"}
+              href={data?.url || "/history"}
               className="inline-block rounded border border-orange bg-white px-12 py-3 text-sm font-medium text-orange-500 transition hover:bg-transparent hover:text-blue-800 focus:outline-none focus:ring focus:ring-yellow-400"
             >
              { data?.btn || " Explore Today"}

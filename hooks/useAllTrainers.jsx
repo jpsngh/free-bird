@@ -4,12 +4,11 @@ import fetcher from '@/lib/fetcher'
 
 
 const useAllTrainers= ()=>{
-    const {data,error,caches,isLoading,mutate} = useSWR('/api/allTrainers',fetcher)
+    const {data,error,isLoading,mutate} = useSWR('/api/allTrainers',fetcher)
 
     return {
         data,
         error,
-        caches,
         isLoading,
         mutate
     }

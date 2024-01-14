@@ -26,6 +26,12 @@ export const author = {
       title: 'Expertise',
       type: 'string',
      },
+     {
+
+      name: 'leader',
+      title: 'IsLeader',
+      type: 'boolean',
+     },
 
     {
       name: 'slug',

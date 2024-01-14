@@ -141,20 +141,10 @@ const ProfileLayout = () => {
          
              
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 items-center">
-            <div className="col-span-1 md:col-span-1">
-              <div className="w-12 h-12 rounded-full overflow-hidden">
-                <Image
-                  src={data?.assignedTrainer?.trainerProfileUrl}
-                  alt="Trainer"
-                  width={48}
-                  height={48}
-                  className="rounded-full"
-                />
-              </div>
-            </div>
-            <div className="col-span-2 md:col-span-2">
-              <h3 className="text-lg font-semibold">{data?.assignedTrainer?.trainerName}</h3>
-              <Link href={`/author/${data?.assignedTrainer?.trainerSlug}`} className="text-gray-600">Trainer Profile</Link>
+           
+            <div className="col-span-2 md:col-span-2 ">
+              <h3 className="text-lg font-semibold text-blue-800 ">{data?.assignedTrainer?.trainerName}</h3>
+              <Link href={`/author/${data?.assignedTrainer?.trainerSlug}`} className="text-gray-600 cursor-pointer ">Trainer Profile</Link>
 
       
             

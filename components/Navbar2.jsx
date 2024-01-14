@@ -50,20 +50,20 @@ const Navbar2 = () => {
           <ul className="flex items-center gap-6 text-md">
             {console.log(ref)}
             <li>
-              <Link  className={` ${ref==="/about"?"text-blue-800":"text-gray-500"} relative after:bg-gray-500 after:top-5 after:absolute after:h-[1px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer   transition hover:text-blue-800`} href="/about">
+              <Link  className={` ${ref==="/history"?"text-blue-800":"text-gray-500"} relative after:bg-gray-500 after:top-5 after:absolute after:h-[1px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer   transition hover:text-blue-800`} href="/history">
                 About
               </Link>
             </li>
   
             <li>
-              <Link className={` ${ref==="/carrers"?"text-blue-800":"text-gray-500"} relative after:bg-blue-800 after:top-5 after:absolute after:h-[1px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer transition hover:text-blue-800`} href="/">
+              <Link className={` ${ref==="/careers"?"text-blue-800":"text-gray-500"} relative after:bg-blue-800 after:top-5 after:absolute after:h-[1px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer transition hover:text-blue-800`} href="/careers">
                 Careers
               </Link>
             </li>
   
             <li>
-              <Link className={` ${ref==="/history"?"text-blue-800":"text-gray-500 "}  transition hover:text-blue-800`} href="/">
-                History
+              <Link className={` ${ref==="/transformations"?"text-blue-800":"text-gray-500 "}  transition hover:text-blue-800`} href="/transformations">
+                Transformations
               </Link>
             </li>
   
@@ -80,8 +80,8 @@ const Navbar2 = () => {
             </li>
   
             <li>
-              <Link className={` ${ref==="/admin"?"text-blue-800":"text-gray-500"} relative after:bg-blue-800 after:top-5 after:absolute after:h-[1px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer transition hover:text-blue-800`} href={currentUser?.isAdmin ? `/free-bird`:`/services` }>
-              {currentUser?.isAdmin? "Admin ":"Services"}  
+              <Link className={` ${ref==="/admin"?"text-blue-800":"text-gray-500"} relative after:bg-blue-800 after:top-5 after:absolute after:h-[1px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer transition hover:text-blue-800`} href={currentUser?.isAdmin ? `/free-bird`:`/author` }>
+              {currentUser?.isAdmin? "Admin ":"Team"}  
               </Link>
             </li>
   

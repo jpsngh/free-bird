@@ -90,7 +90,7 @@ const Workouts = ({trainer}) => {
    
       const success =    await axios.post('/api/addDiet',{
 
-        trainerId : trainer.id,
+        trainerId : trainer?.id,
         dietTitle,
         dietUrl
           
@@ -135,7 +135,7 @@ const Workouts = ({trainer}) => {
   
 
 
-  },[trainer.id, dietTitle, dietUrl,messageApi] )
+  },[trainer?.id, dietTitle, dietUrl,messageApi] )
 
         
 
@@ -216,11 +216,11 @@ const Workouts = ({trainer}) => {
        <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-5"> 
    
        {trainer?.diet?.map((workout)=>{
-        return   <Card ClassName="m-2 p-2"  key={workout.id}
+        return   <Card ClassName="m-2 p-2"  key={workout?.id}
         hoverable
         style={{ width: 200,
        }}
-        cover={<Image alt="example" src={workout.dietUrl} />}
+        cover={<Image alt="example" src={workout?.dietUrl} />}
       >
         <div className="flex flex-col gap-2"> 
         <Meta title={workout.dietTitle} description={workout.dietUrl} />

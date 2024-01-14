@@ -417,30 +417,28 @@ export const getLeaderShip = async ()=>{
  *[_type=='leadership'][]{
 _id,
     title,
-    ,
-    title2,
-    title3,
-    title4,
-    title5,
+    body,
+"leaderImage1":leaderImage1.asset->url,
+  
+"leaderImage2":leaderImage2.asset->url,
    
+"leaderImage3":leaderImage3.asset->url,
+   
+"leaderImage4":leaderImage4.asset->url,
 
+"leaderImage5":leaderImage5.asset->url,
+leaderName1,
+leaderRole1,
+leaderName2,
+leaderRole2,
+leaderName3,
+leaderRole3,
+leaderName4,
+leaderRole4,
+leaderName5,
+leaderRole5,
 
-
-"firstImage":clientImage1.asset->url,
-    publishedAt,
-categories[0],
-"secondImage":clientimage2.asset->url,
-    publishedAt,
-categories[0],
-"thirdImage":clientimage3.asset->url,
-    publishedAt,
-categories[0],
-"fourthImage":clientimage4.asset->url,
-    publishedAt,
-categories[0],
-"fifthImage":clientimage5.asset->url,
-    publishedAt,
-categories[0],
+   
 
   
   } | order(_createdAt desc)
