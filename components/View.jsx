@@ -1,3 +1,5 @@
+"use client"
+import React from 'react'
 
 import Hero from "@/components/Hero"
 import Trusted from "@/components/Trusted"
@@ -13,11 +15,12 @@ import Transformations from "@/components/Transformations"
 import Banner from "@/components/Banner"
 import { BrowserView, MobileView, isBrowser, isMobile } from 'react-device-detect';
 
-export default async function  Home() {
-     
 
-     
-          return (
+const View = () => {
+  return (
+    <div>
+
+return (
 <> 
                <BrowserView> 
           <main className="flex min-w-7xl z-10  flex-col items-center justify-between p-5">
@@ -28,7 +31,7 @@ export default async function  Home() {
           <Hero >
           </Hero>  
         
-          <div className=" bg-orange-500   md:bg-mobile md:object-scale-down md:h-full w-screen z-0  bg-fixed bg-cover " >
+          <div className="   md:bg-mobile md:object-scale-down md:h-full w-screen z-0  bg-fixed bg-cover " >
      
                
      
@@ -51,7 +54,7 @@ export default async function  Home() {
      
      
         
-          <div className=" bg-blue-800 md:bg-mobilejp object-contain md:h-full md:w-screen bg-fixed bg-canvas" >
+          <div className="  md:bg-mobilejp object-contain md:h-full md:w-screen bg-fixed bg-canvas" >
            <div className=" md:hidden   "> 
           <Cta className=" md:hidden   " slug="home" > </Cta>
           </div>
@@ -106,6 +109,9 @@ export default async function  Home() {
       
 
 
-     
-   
+
+    </div>
+  )
 }
+
+export default View

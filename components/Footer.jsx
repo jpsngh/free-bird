@@ -9,7 +9,7 @@ const Footer = () => {
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-3">
             <div>
               <div className="flex justify-center text-teal-600 sm:justify-start">
-              <Image src="https://www.freebirdhealthclub.ca/assets/img/logo/freebirdlogo.png" className="w-[100px] h-[60px] p-2" width={100} height={60} alt="free-bird" ></Image>
+              <Image src="https://png.pngtree.com/png-clipart/20220605/original/pngtree-fitness-gym-logo-png-png-image_7964069.png" className="w-[100px] h-[60px] p-2" width={100} height={60} alt="free-bird" ></Image>
                  
               </div>
            

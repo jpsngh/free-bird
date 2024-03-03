@@ -29,9 +29,11 @@ export default function RootLayout({ children }) {
   
   return (
     <html lang="en">
-     
+
       <body className={inter.className}>
-       
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.4.5/mobile-detect.min.js">
+        
+      </script>
         <ClerkProvider> 
         <EdgeStoreProvider>
     <EditModal></EditModal>

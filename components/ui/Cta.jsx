@@ -5,11 +5,16 @@ async function Cta({slug}) {
 
  const data = await getCta(slug) 
 
+ const url = data?.image
+
+
+
   return (
     <div>
 
 <section
-  className={`overflow-hidden  bg-[url("${data?.image || `https://f45training.com/wp-content/uploads/2023/12/hero-blog.jpg`}")] bg-cover  bg-top bg-no-repeat`}
+  className={`overflow-hidden bg-url()   bg-cover  bg-top bg-no-repeat`}
+  style={{backgroundImage: `url(${url})`}}
 >
   <div className="bg-black/25 p-8 md:p-12 lg:px-16 lg:py-24">
     <div className=" flex flex-col justify-center items-center text-center ">

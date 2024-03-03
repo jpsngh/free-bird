@@ -42,7 +42,7 @@ const Navbar2 = () => {
     >
       <Link className="block text-teal-600 " href="/">
         <span className="sr-only">Home</span>
-        <img src="https://www.freebirdhealthclub.ca/assets/img/logo/freebirdlogo.png" className="w-[100px] h-[60px] p-2" ></img>
+        <img src="https://png.pngtree.com/png-clipart/20220605/original/pngtree-fitness-gym-logo-png-png-image_7964069.png" className="w-[100px] h-[60px] p-2" ></img>
       </Link>
   
       <div className="flex flex-1 items-center justify-end md:justify-between">

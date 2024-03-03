@@ -15,8 +15,8 @@ module.exports = {
     },
     extend: {
       backgroundImage : {
-        mobile : `url(https://www.freebirdhealthclub.ca/admin/sliders/2.jpeg)`,
-        mobilejp : `url(https://www.freebirdhealthclub.ca/assets/img/bg/hero-1.jpg)`,
+        mobile : `url(https://cdn.shopify.com/s/files/1/0597/5162/8956/t/7/assets/craig-lovelidge-ydgsn39fbd4-unsplash_1-1670619357556.png?v=1670619359)`,
+        mobilejp : `url(https://cdn.shopify.com/s/files/1/0775/3691/9844/files/unnamed.png?v=1691095841)`,
         landscapeBg : `url(https://www.freebirdhealthclub.ca/admin/gallery/3.jpeg)`,
         landscapeBg2 : `url(https://www.freebirdhealthclub.ca/admin/gallery/2.jpeg)`
 

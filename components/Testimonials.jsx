@@ -12,7 +12,7 @@ const Testimonials = ({testData}) => {
 
 
    const [testament,setTestament] = useState(0)
-   console.log("review",testData)
+  
    const descData = [{
     key:1,
     description:testData[0]?.review ||"“You made it so simple. My new site is so much faster and easier to work with than my old site. I just choose the page, make the change and click save. No need to think twice before making it”",
@@ -41,7 +41,7 @@ const Testimonials = ({testData}) => {
       }]
 
     return ( <section>
-  <div className="flex flex-col justify-start  md:flex-row  gap-2 py-5 md:px-10 md:py-10" >
+  <div className="flex flex-col justify-start  md:flex-row my-10 gap-2 py-10 md:px-10 md:py-10" >
 
     <div className=" description  w-xl flex flex-col gap-5" >
 
@@ -52,7 +52,7 @@ const Testimonials = ({testData}) => {
       {[descData[testament]].map((data)=>{
     return    <div key={data.key} > 
     <Framer >
- <div className="mt-10 md:w-[80%]"> 
+ <div className="mt-10 py-5 md:w-[80%]"> 
 <p className=" w-fit font-serif text-xl  md:text-3xl  text-black" >
       {data.description}
       </p>  
